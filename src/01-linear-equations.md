@@ -18,6 +18,9 @@
     - [矩阵-向量积 $\\mathbf{A} \\mathbf{x}$](#矩阵-向量积-mathbfa-mathbfx)
     - [矩阵方程 $\\mathbf{A} \\mathbf{x} = \\mathbf{b}$](#矩阵方程-mathbfa-mathbfx--mathbfb)
   - [线性方程组的解集](#线性方程组的解集)
+    - [齐次线性方程组](#齐次线性方程组)
+    - [解的参数向量形式](#解的参数向量形式)
+    - [非齐次线性方程组](#非齐次线性方程组)
   - [线性无关](#线性无关)
   - [线性变换](#线性变换)
   - [线性变换的矩阵](#线性变换的矩阵)
@@ -276,7 +279,7 @@ x_n
 x_1 \mathbf{a}_1 + x_2 \mathbf{a}_2 + \dots + x_n \mathbf{a}_n
 $
 
-*性质*
+*性质（定理 5）*
 
 若 $\mathbf{A}$ 是 $m \times n$ 矩阵， $\mathbf{u}, \mathbf{v} \in \mathbb{R}^n$ ， $c$ 是标量，则
 
@@ -313,6 +316,50 @@ $\begin{bmatrix*}
 4.  $\mathbf{A}$ 的每一行都有一个主元
 
 ## 线性方程组的解集
+
+### 齐次线性方程组
+
+若线性方程组可写成 $\mathbf{A} \mathbf{x} = \mathbf{0}$ ，其中 $\mathbf{A}$ 是 $m \times n$ 矩阵， $\mathbf{0} \in \mathbb{R}^m$ ，则称该线性方程组是*齐次*的。它至少有一个解 $\mathbf{x} = \mathbf{0} \; (\mathbf{0} \in \mathbb{R}^n)$ ，称为它的*平凡解*。
+
+### 解的参数向量形式
+
+若方程组有自由变量，可以用它作为参数得到解集的参数表示。例如，对某个简化后的增广矩阵
+
+$\begin{bmatrix*}[r]
+1 & 0  & -5 & 1 \\
+0 & 1 & 1 & 4 \\
+0 & 0 & 0 & 0
+\end{bmatrix*}$
+
+解集的参数表示为
+
+$\begin{cases}
+x_1 = 5 x_3 + 1 \\
+x_2 = -x_3 + 4\\
+x_3 \; \text{是自由变量}
+\end{cases}$
+
+解集的*参数向量表示*为
+
+$\mathbf{x} =
+s \begin{bmatrix*}[r]
+5 \\
+-1 \\
+1
+\end{bmatrix*} +
+\begin{bmatrix*}[r]
+1 \\
+4 \\
+0
+\end{bmatrix*}$
+
+### 非齐次线性方程组
+
+*定理 6*
+
+若方程 $\mathbf{A} \mathbf{x} = \mathbf{b}$ 有解， $\mathbf{p}$ 是它的某个解，则方程 $\mathbf{A} \mathbf{x} = \mathbf{b}$ 的解集可表示为 $\mathbf{w} = \mathbf{p} + \mathbf{v}$ ，其中 $\mathbf{v}$ 是齐次方程 $\mathbf{A} \mathbf{x} = \mathbf{0}$ 的任一解。
+
+该定理说明，若 $\mathbf{A} \mathbf{x} = \mathbf{b}$ 有解，则解集可由 $\mathbf{A} \mathbf{x} = \mathbf{0}$ 的解集平移 $\mathbf{p}$ 得到。
 
 ## 线性无关
 
