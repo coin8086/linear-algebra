@@ -26,7 +26,13 @@
     - [矩阵各列线性无关](#矩阵各列线性无关)
     - [线性无关性的判别](#线性无关性的判别)
   - [线性变换](#线性变换)
+    - [有关变换的基本概念](#有关变换的基本概念)
+    - [矩阵变换](#矩阵变换)
+    - [线性变换](#线性变换-1)
   - [线性变换的矩阵](#线性变换的矩阵)
+    - [标准矩阵](#标准矩阵)
+    - [几何线性变换](#几何线性变换)
+    - [映射的存在性与唯一性](#映射的存在性与唯一性)
 
 
 ## 线性方程组
@@ -408,4 +414,75 @@ $x_1 \mathbf{v}_1 + x_2 \mathbf{v}_2 + \dots + x_p \mathbf{v}_p = \mathbf{0}$
 
 ## 线性变换
 
+### 有关变换的基本概念
+
+由 $\mathbb{R}^n$ 到 $\mathbb{R}^m$ 的一个*变换*（或称*函数*、*映射*） $T$ 是一个规则，它把 $\mathbb{R}^n$ 中的每个向量 $\mathbf{x}$ 对应到 $\mathbb{R}^m$ 中的一个向量 $T(\mathbf{x})$ 。 $\mathbb{R}^n$ 称为 $T$ 的*定义域*， $\mathbb{R}^m$ 称为 $T$ 的*上域*， $T(\mathbf{x})$ 的集合称为 $T$ 的*值域*。
+
+以上变换可记作 $T: \mathbb{R}^n \to \mathbb{R}^m$
+
+若 $T(\mathbf{x}) = \mathbf{b}$ ，则称 $\mathbf{b}$ 为 $\mathbf{x}$ 在 $T$ 作用下的*像*，称 $\mathbf{x}$ 为 $\mathbf{b}$ 的*原像*。
+
+### 矩阵变换
+
+对于 $\mathbb{R}^n$ 中每个 $\mathbf{x}$ ，设 $T(\mathbf{x}) = \mathbf{A} \mathbf{x}$ ，其中 $\mathbf{A}$ 是 $m \times n$ 矩阵，有时将这样一个*矩阵变换*记为 $\mathbf{x} \to \mathbf{A} \mathbf{x}$ 。 $T$ 的值域为 $\mathbf{A}$ 的列的所有线性组合的集合。
+
+### 线性变换
+
+变换 $T$ 称为*线性*的，若
+
+1. 对 $T$ 定义域中的一切 $\mathbf{u}, \mathbf{v}$ ，有 $T(\mathbf{u} + \mathbf{v}) = T(\mathbf{u}) + T(\mathbf{v})$
+2. 对 $T$ 定义域总的一切 $\mathbf{u}$ 和数 $c$ ，有 $T(c \mathbf{u}) = c T(\mathbf{u})$
+
+*矩阵变换都是线性变换。*
+
+若 $T$ 是线性变换，则
+
+1. $T(\mathbf{0}) = \mathbf{0}$
+2. $T(c \mathbf{u} + d \mathbf{v}) = c T(\mathbf{u}) + d T(\mathbf{v})$ ，其中 $\mathbf{u}$ 和 $\mathbf{v}$ 是 $T$ 定义域中的向量， $c$ 和 $d$ 是数
+
+$T(c \mathbf{u} + d \mathbf{v}) = c T(\mathbf{u}) + d T(\mathbf{v})$ 又称为*叠加原理*，可以推广为
+
+$T(c_1 \mathbf{v}_1 + c_2 \mathbf{v}_2 + \dots + c_p \mathbf{v}_p) = c_1 T(\mathbf{v}_1) + c_2 T(\mathbf{v}_2) + \dots + c_p T(\mathbf{v}_p)$
+
 ## 线性变换的矩阵
+
+### 标准矩阵
+
+*定理 10*
+
+设 $T: \mathbb{R}^n \to \mathbb{R}^m$ 为线性变换，则存在唯一的矩阵 $\mathbf{A}$ ，使得对 $\mathbb{R}^n$ 中的一切 $\mathbf{x}$ 有
+
+$T(\mathbf{x}) = \mathbf{A} \mathbf{x}$
+
+其中， $\mathbf{A}$ 是 $m \times n$ 矩阵，它的第 $i$ 列是向量 $T(\mathbf{e}_i)$ ，其中 $\mathbf{e}_i$ 是单位矩阵 $\mathbf{I}_n$ 的第 $i$ 列，即
+
+$\mathbf{A} = [T(\mathbf{e}_1) \; T(\mathbf{e}_2) \; \dotsb \; T(\mathbf{e}_n)]$
+
+以上矩阵 $\mathbf{A}$ 称为线性变换 $T$ 的*标准矩阵*。
+
+### 几何线性变换
+
+在 $\mathbb{R}^2$ 中，通过线性变换可以实现图像的对称、缩放、剪切和投影等几何变换。
+
+### 映射的存在性与唯一性
+
+*满射*
+
+映射 $T: \mathbb{R}^n \to \mathbb{R}^m$ 称为*到 $\mathbb{R}^m$ 上的映射*（也成为*满射*），若 $\mathbb{R}^m$ 中的每个元素在 $\mathbb{R}^n$ 中都有（至少一个）原像。
+
+*单射*
+
+映射 $T: \mathbb{R}^n \to \mathbb{R}^m$ 称为*单射*，若 $\mathbb{R}^m$ 中的每个元素在 $\mathbb{R}^n$ 中都有最多有一个原像（也可以没有原像）。
+
+*定理 11*
+
+设 $T: \mathbb{R}^n \to \mathbb{R}^m$ 是线性变换，则 $T$ 是单射当且仅当方程 $\mathbf{A} \mathbf{x} = \mathbf{0}$ 仅有平凡解。
+
+*联系 [定理 6](#非齐次线性方程组) ： $\mathbf{A} \mathbf{x} = \mathbf{0}$ 与 $\mathbf{A} \mathbf{x} = \mathbf{b}$ 的解集的关系，可证明定理 11。*
+
+*定理 12*
+
+设 $T: \mathbb{R}^n \to \mathbb{R}^m$ 是线性变换， $\mathbf{A}$ 是 $T$ 的标准矩阵，则
+
+1.  $T$ 把 $\mathbb{R}^n$ *映上*到 $\mathbb{R}^m$ ，当且仅当 $\mathbf{A}$ 的列生成 $\mathbb{R}^m$
+2.  $T$ 是单射，当且仅当 $\mathbf{A}$ 的列线性无关
