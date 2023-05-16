@@ -203,11 +203,7 @@ $[0 \dots 0 \; b], \quad b \ne 0$
 
 *向量*
 
-仅含一列的矩阵称为向量。
-
-*有序数组*
-
-向量可以表示一组有序数，如
+第四章“向量空间”将对向量做一个正式的定义。在此之前，我们可以把仅含一列的矩阵称为*向量*。它可以用来表示一组有序数，如
 
 $\mathbf{u} = \begin{bmatrix*}
 u_1 \\
@@ -216,19 +212,24 @@ u_2 \\
 u_n
 \end{bmatrix*}$
 
-（$\mathbf{u}$ 也称为一个 $n$ 维向量）
+$\mathbf{u}$ 是一个 $n$ 元有序数组
 
-*$\mathbb{R}^n$*
+*$\mathbb{R}^n$ 中的向量*
 
-$\mathbb{R}^n$ 表示所有 $n$ 元有序数组（ $n$ 维向量）的集合，其中 $n$ 是正整数。
+$\mathbb{R}^n$ 表示所有 $n$ 元有序数组的集合，其中 $n$ 是正整数。
 
-*向量的相等关系*
+$\mathbb{R}^n$ 定义了它的向量的加法和标量乘法运算，以及向量的相等关系和零向量 $\mathbf{0}$ 。此外， $\mathbb{R}^n$ 中的向量还具有以下代数性质
 
-$\mathbb{R}^n$ 中两个向量相等当且仅当它们对应位置的元素相等。
+对 $\mathbb{R}^n$ 中的一切向量 $\mathbf{u}, \mathbf{v}, \mathbf{w}$ 以及标量 $c, d$
 
-*向量的运算*
-
-（略）
+1. $\mathbf{u} + \mathbf{v} = \mathbf{v} + \mathbf{u}$
+2. $(\mathbf{u} + \mathbf{v}) + \mathbf{w} = u + (\mathbf{v} + \mathbf{w})$
+3. $\mathbf{u} + \mathbf{0} = \mathbf{u}$
+4. $\mathbf{u} + (- \mathbf{u}) = \mathbf{0}$
+5. $c(\mathbf{u} + \mathbf{v}) = c \mathbf{u} + c \mathbf{v}$
+6. $(c + d)\mathbf{u} = c \mathbf{u} + d \mathbf{u}$
+7. $c(d \mathbf{u}) = (cd) \mathbf{u}$
+8. $1 \mathbf{u} = \mathbf{u}$
 
 ### 线性组合
 
