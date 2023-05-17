@@ -363,16 +363,16 @@ $w_1 \mathbf{v}_1 + w_2 \mathbf{v}_2 + \dots$
 
 ### 坐标系
 
-设 $\beta = \{ \mathbf{b}_1, \dots, \mathbf{b}_p \}$ 是子空间 $H$ 的一个基，对 $H$ 中的向量 $\mathbf{x}$ ，相对于基 $\beta$ 的*坐标*是使 $x = c_1 \mathbf{b}_1 + \dots + c_p \mathbf{b}_p$ 成立的权 $c_1, \dots, c_p$ 。 $\mathbb{R}^p$ 中的向量
+设 $\mathcal{B} = \{ \mathbf{b}_1, \dots, \mathbf{b}_p \}$ 是子空间 $H$ 的一个基，对 $H$ 中的向量 $\mathbf{x}$ ，相对于基 $\mathcal{B}$ 的*坐标*是使 $x = c_1 \mathbf{b}_1 + \dots + c_p \mathbf{b}_p$ 成立的权 $c_1, \dots, c_p$ 。 $\mathbb{R}^p$ 中的向量
 
-$[\mathbf{x}]_{\beta} =
+$[\mathbf{x}]_{\mathcal{B}} =
 \begin{bmatrix*}
 c_1 \\
 \vdots \\
 c_p
 \end{bmatrix*}$
 
-称为 $\mathbf{x}$（相对于 $\beta$ ）的坐标向量，或 $\mathbf{x}$ 的 $\beta$ -坐标向量。
+称为 $\mathbf{x}$（相对于 $\mathcal{B}$ ）的坐标向量，或 $\mathbf{x}$ 的 $\mathcal{B}-$ 坐标向量。
 
 ### 子空间的维数
 
@@ -399,6 +399,6 @@ c_p
 * $A$ 的列向量构成 $\mathbb{R}^n$ 的一个基
 * $\mathrm{Col} \, A = \mathbb{R}^n$
 * $\dim \mathrm{Col} \, A = n$
-* $\mathrm{Rank} \, A = n$
+* $\mathrm{rank} \, A = n$
 * $\mathrm{Nul} \, A = \{ \mathbf{0} \}$
 * $\dim \mathrm{Nul} \, A = 0$
