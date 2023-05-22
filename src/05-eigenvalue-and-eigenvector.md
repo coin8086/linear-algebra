@@ -20,7 +20,12 @@
     - [$\\mathbb{R}^n$ 上的线性变换](#mathbbrn-上的线性变换)
     - [矩阵表示的相似性](#矩阵表示的相似性)
   - [5.5 复特征值](#55-复特征值)
+    - [复特征值和复特征向量](#复特征值和复特征向量)
+    - [复向量的实部与虚部](#复向量的实部与虚部)
+    - [作用于 $\\mathbb{C}^n$ 上的实矩阵](#作用于-mathbbcn-上的实矩阵)
   - [5.6 离散动力系统](#56-离散动力系统)
+    - [差分方程](#差分方程)
+    - [变量代换](#变量代换)
 
 
 ## 5.1 特征值与特征向量
@@ -178,10 +183,110 @@ $M = [[T(\mathbf{b}_1)]_C \ \dots \ [T(\mathbf{b}_n)]_C]$
 定理 8成立并不需要 $D$ 是对角矩阵。事实上，对于 $\mathbb{R}^n \to \mathbb{R}^n$ 的线性变换 $T(\mathbf{x}) = A \mathbf{x}$
 
 1. 若 $A$ 相似于 $C$ ，即 $A = P C P^{-1}$ ，且 $\mathcal{B}$ 由 $P$ 的列向量构成，则 $[T]_B = C = P^{-1} A P$
-2. 反之，若 $\mathcal{B}$ 是 $\mathbb{R}^n$ 的任意一个基，则 $[T]_B = P^{-1} A P$ ， $\mathcal{B}$ 的向量就是 $P$ 的列向量。
+2. 反之，若 $\mathcal{B}$ 是 $\mathbb{R}^n$ 的任意一个基，则 $[T]_B = P^{-1} A P$ ， $P$ 的列向量的集合是 $\mathcal{B}$
 
 因此，所有相似于 $A$ 的矩阵的集合与变换 $\mathbf{x} \mapsto A \mathbf{x}$ 的所有矩阵表示的集合是同一集合。
 
 ## 5.5 复特征值
 
+### 复特征值和复特征向量
+
+一个复数 $\lambda$ 满足 $\det (A - \lambda I) = 0$ 当且仅当在 $\mathbb{C}^n$ 中存在一个非零向量 $\mathbf{x}$ ，使得 $A \mathbf{x} = \lambda \mathbf{x}$ 。这样的 $\lambda$ 称为（复）特征值, $\mathbf{x}$ 称为对应于 $\lambda$ 的（复）特征向量。
+
+### 复向量的实部与虚部
+
+设 $\mathbf{x} \in \mathbb{C}^n$ ，则向量 $\Re \mathbf{x}$ 和 $\Im \mathbf{x}$ 称为复向量 $\mathbf{x}$ 的*实部*和*虚部*，分别由 $\mathbf{x}$ 的分量的实部和虚部组成。
+
+设 $\mathbf{x} \in \mathbb{C}^n$ ，则它的*共轭向量* $\overline{\mathbf{x}}$ 也属于 $\mathbb{C}^n$ ，其分量是 $\mathbf{x}$ 中对应分量的共轭复数。
+
+*共轭运算*
+
+复数的共轭运算性质对于复矩阵（可能含有复数元素的矩阵）也成立：若有复矩阵 $A, B$ ，复向量 $\mathbf{x}$ 及复数 $c$ ，并且 $A, B, \mathbf{x}$ 的规格使以下运算都能成立，则
+
+* $\overline{c \mathbf{x}} = \overline{c} \ \overline{\mathbf{x}}$
+* $\overline{c A} = \overline{c} \ \overline{A}$
+* $\overline{A \mathbf{x}} = \overline{A} \ \overline{\mathbf{x}}$
+* $\overline{A B} = \overline{A} \ \overline{B}$
+
+### 作用于 $\mathbb{C}^n$ 上的实矩阵
+
+*成对出现的复特征值*
+
+设 $A$ 为 $n \times n$ 的实矩阵， $\lambda$ 是 $A$ 的特征值， $\mathbf{x}$ 是对应的特征向量，则
+
+$A \overline{\mathbf{x}} = \overline{A \mathbf{x}} = \overline{\lambda \mathbf{x}} = \overline{\lambda} \ \overline{\mathbf{x}}$
+
+即 $\overline{\lambda}$ 也是 $A$ 的特征值， $\overline{\mathbf{x}}$ 是对应的特征向量。
+
+这表明，当 $A$ 是实矩阵时，它的复特征值 $\lambda = a + b \imath, \ b \ne 0$ 总是以共轭复数对出现。
+
+*产生旋转的实矩阵*
+
+设实矩阵 $C =
+\begin{bmatrix*}[r]
+a & -b \\
+b & a
+\end{bmatrix*}$ ，其中 $a, b$ 为实数且 b 不等于零，则 $C$ 的特征值 $\lambda = a \pm b \imath$ 。又设 $r = |\lambda| = \sqrt{a^2 + b^2}$ ， $\varphi$ 为复数 $a + b \imath$ 的辐角，则
+
+$C =
+r \begin{bmatrix*}[r]
+a / r & -b / r \\
+b / r & a / r
+\end{bmatrix*} =
+\begin{bmatrix*}[r]
+r & 0 \\
+0 & r \\
+\end{bmatrix*}
+\begin{bmatrix*}[r]
+\cos \varphi & - \sin \varphi \\
+\sin \varphi & \cos \varphi \\
+\end{bmatrix*}$
+
+因此 $\mathbf{x} \mapsto C \mathbf{x}$ 的效果是把向量 $\mathbf{x}$ 倍乘 $r$ 再逆时针旋转 $\varphi$ 。
+
+以下定理说明*任何含有复特征值的 $2 \times 2$ 实矩阵都会产生旋转*
+
+*定理 9*
+
+设 $A$ 是 $2 \times 2$ 实矩阵，有复特征值 $\lambda = a - b \imath$ 及对应的复特征向量 $\mathbf{v}$ ，则
+
+$A = P C P^{-1}$ 其中 $P = [\Re \mathbf{v} \ \Im \mathbf{v}]$ ， $C = \begin{bmatrix*}[r]
+a & -b \\
+b & a
+\end{bmatrix*}$
+
 ## 5.6 离散动力系统
+
+### 差分方程
+
+对于差分方程 $\mathbf{x}_{k + 1} = A \mathbf{x}_k$ ，若 $n \times n$ 矩阵 $A$ 可对角化，有 $n$ 个线性无关的特征向量 $\mathbf{v}_1, \dots, \mathbf{v}_n$ 和对应的特征值 $\lambda_1, \dots, \lambda_n$ ，则任一初始向量 $\mathbf{x}_0$ 可表示为
+
+$\mathbf{x}_0 = c_1 \mathbf{v}_1 + \dots + c_n \mathbf{v}_n$
+
+那么
+
+$\mathbf{x}_1 = A \mathbf{x}_0 = c_1 \lambda_1 \mathbf{v}_1 + \dots + c_n \lambda_n \mathbf{v}_n$
+
+$\dots$
+
+$\mathbf{x}_k = A \mathbf{x}_{k - 1} = c_1 \lambda_1^k \mathbf{v}_1 + \dots + c_n \lambda_n^k \mathbf{v}_n$
+
+当 $k \to \infty$ 时，据此可知由该差分方程描述的动力系统的长期行为。
+
+### 变量代换
+
+对于差分方程 $\mathbf{x}_{k + 1} = A \mathbf{x}_k$ ，若 $n \times n$ 矩阵 $A$ 可对角化，有 $n$ 个线性无关的特征向量 $\mathbf{v}_1, \dots, \mathbf{v}_n$ 和对应的特征值 $\lambda_1, \dots, \lambda_n$，以这些特征向量为 $\mathbb{R}^n$ 的基，并设 $P = [\mathbf{v}_1 \ \dots \ \mathbf{v}_n]$ ， $D$ 是对角线上元素为对应特征值的对角矩阵。定义
+
+$\mathbf{y} = P^{-1} \mathbf{x}$
+
+则有
+
+$\mathbf{y}_{k + 1} = D \mathbf{y}_k$
+
+若把 $\mathbf{y}_k$ 记作 $\mathbf{y}(k)$ ，并用 $y_1(k), \dots, y_n(k)$ 表示其分量，则有
+
+$y_i(k + 1) = \lambda_i y_i(k), \quad i = 1, \dots, n$
+
+可见，从 $\mathbf{x}_k$ 到 $\mathbf{y}_k$ 的变量代换解耦了差分方程系统，使得 $y_i(k)$ 的变化不受其他分量 $y_j(k), \quad j \ne i$ 的影响。
+
+$\mathbf{y} = P^{-1} \mathbf{x}$ 实际上是一种坐标变换。
