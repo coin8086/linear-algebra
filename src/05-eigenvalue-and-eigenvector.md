@@ -36,7 +36,7 @@
 
 ### 特征空间
 
-$\lambda$ 是 $A$ 的特征值当且仅当方程 $(A - \lambda I) \mathbf{x} = \mathbf{0}$ 有非平凡解。它的解集是矩阵 $A - \lambda I$ 的零空间，也是 $\mathbb{R}^n$ 的子空间，称为 $A$ 对应于 $\lambda$ 的*特征空间*。特征空间由零向量和所有对应于 $\lambda$ 的特征向量组成。
+$\lambda$ 是 $A$ 的特征值当且仅当方程 $(A - \lambda I) \mathbf{x} = \mathbf{0}$ 有非平凡解。方程的解集是矩阵 $A - \lambda I$ 的零空间，也是 $\mathbb{R}^n$ 的子空间，称为 $A$ 对应于 $\lambda$ 的*特征空间*。特征空间由零向量和所有对应于 $\lambda$ 的特征向量组成。
 
 ### 计算特征值
 
@@ -86,7 +86,7 @@ $\det A = \begin{cases}
 
 数 $\lambda$ 是矩阵 $A$ 的特征值的充要条件是 $\lambda$ 是 $A$ 的特征方程的根。
 
-若 $A$ 是 $n \times n$ 矩阵，则 $\det (A - \lambda I)$ 是 $n$ 次多项式，称为 $A$ 的*特征多项式*。
+若 $A$ 是 $n \times n$ 矩阵，则 $\det (A - \lambda I)$ 是 $\lambda$ 的 $n$ 次多项式，称为 $A$ 的*特征多项式*。
 
 特征值 $\lambda$ 作为特征方程根的重数称为 $\lambda$ 的*代数重数*。
 
@@ -174,7 +174,7 @@ $M = [[T(\mathbf{b}_1)]_C \ \dots \ [T(\mathbf{b}_n)]_C]$
 
 *定理 8*
 
-设 $A = P D P^{-1}$ ，其中 $D$ 为 $n \times n$ （对角）矩阵，若 $\mathbb{R}^n$ 的基 $\mathcal{B}$ 由 $P$ 的列向量组成，则 $D$ 是变换 $\mathbf{x} \mapsto A \mathbf{x}$ 的 $\mathcal{B}-$ 矩阵。
+设 $A = P D P^{-1}$ ，其中 $D$ 为 $n \times n$ （对角）矩阵，若以 $P$ 的列向量作为 $\mathbb{R}^n$ 的基（记作 $\mathcal{B}$ ），则 $D$ 是变换 $\mathbf{x} \mapsto A \mathbf{x}$ 的 $\mathcal{B}-$ 矩阵。
 
 设 $\mathbf{u} = [\mathbf{x}]_P = P^{-1} \mathbf{x}$ ，则映射 $\mathbf{x} \mapsto A \mathbf{x}$ 和 $\mathbf{u} \mapsto D \mathbf{u}$ 描述的相对不同基的同一个线性变换。
 
@@ -182,8 +182,8 @@ $M = [[T(\mathbf{b}_1)]_C \ \dots \ [T(\mathbf{b}_n)]_C]$
 
 定理 8成立并不需要 $D$ 是对角矩阵。事实上，对于 $\mathbb{R}^n \to \mathbb{R}^n$ 的线性变换 $T(\mathbf{x}) = A \mathbf{x}$
 
-1. 若 $A$ 相似于 $C$ ，即 $A = P C P^{-1}$ ，且 $\mathcal{B}$ 由 $P$ 的列向量构成，则 $[T]_B = C = P^{-1} A P$
-2. 反之，若 $\mathcal{B}$ 是 $\mathbb{R}^n$ 的任意一个基，则 $[T]_B = P^{-1} A P$ ， $P$ 的列向量的集合是 $\mathcal{B}$
+1. 若 $A$ 相似于 $C$ ，即 $A = P C P^{-1}$ ，若以 $P$ 的列向量作基（记作 $\mathcal{B}$ ），则 $[T]_B = C = P^{-1} A P$
+2. 反之，若 $\mathcal{B}$ 是 $\mathbb{R}^n$ 的任意一个基，则 $[T]_B = P^{-1} A P$ ， $P$ 的列向量的集合等于 $\mathcal{B}$
 
 因此，所有相似于 $A$ 的矩阵的集合与变换 $\mathbf{x} \mapsto A \mathbf{x}$ 的所有矩阵表示的集合是同一集合。
 
@@ -255,6 +255,15 @@ a & -b \\
 b & a
 \end{bmatrix*}$
 
+定理的证明依赖以下结论：
+
+1. 若 $A$ 是实矩阵， $\mathbf{x}$ 是复向量，则
+   * $A (\Re \mathbf{x}) = \Re (A \mathbf{x})$
+   * $A (\Im \mathbf{x}) = \Im (A \mathbf{x})$
+2. 若 $\mathbf{x}$ 是对应于某个复特征值的特征向量，则 $\Re \mathbf{x}$ 和 $\Im \mathbf{x}$ 线性无关。
+
+此外，更高维度的矩阵也可以产生旋转。
+
 ## 5.6 离散动力系统
 
 ### 差分方程
@@ -283,7 +292,28 @@ $\mathbf{y} = P^{-1} \mathbf{x}$
 
 $\mathbf{y}_{k + 1} = D \mathbf{y}_k$
 
-若把 $\mathbf{y}_k$ 记作 $\mathbf{y}(k)$ ，并用 $y_1(k), \dots, y_n(k)$ 表示其分量，则有
+若把 $\mathbf{y}_k$ 记作 $\mathbf{y}(k)$ ，并用 $y_1(k), \dots, y_n(k)$ 表示其分量，则
+
+$\begin{bmatrix*}
+y_1(k + 1) \\
+y_2(k + 1) \\
+\vdots     \\
+y_n(k + 1) \\
+\end{bmatrix*} =
+\begin{bmatrix*}
+\lambda_1 & 0         & \dots  & 0         \\
+0         & \lambda_2 &        & \vdots    \\
+\vdots    &           & \ddots & 0         \\
+0         & \dots     & 0      & \lambda_n \\
+\end{bmatrix*}
+\begin{bmatrix*}
+y_1(k) \\
+y_2(k) \\
+\vdots     \\
+y_n(k) \\
+\end{bmatrix*}$
+
+即
 
 $y_i(k + 1) = \lambda_i y_i(k), \quad i = 1, \dots, n$
 
