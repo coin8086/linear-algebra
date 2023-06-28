@@ -5,3 +5,4 @@
 3. [行列式](src/03-determinant.md)
 4. [向量空间](src/04-vector-space.md)
 5. [特征值与特征向量](src/05-eigenvalue-and-eigenvector.md)
+6. [正交性和最小二乘法](src/06-orthogonality.md)
