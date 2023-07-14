@@ -171,11 +171,11 @@ D & 0 \\
 
 设 $m \times n$ 矩阵 $A$ 的秩为 $r$ ，奇异值为 $\sigma_1, \dots, \sigma_n$ ，左奇异向量为 $\mathbf{u}_1, \dots, \mathbf{u}_m$ ，右奇异向量为 $\mathbf{v}_1, \dots, \mathbf{v}_n$ ，则 $A$ 的四个基本子空间的（单位正交）基如下：
 
-| 子空间          | 单位正交基
-|----------------|-----------
+| 子空间          | （单位正交）基
+|----------------|----------------
 | $\mathrm{Row} \ A$ | $\mathbf{v}_1, \dots, \mathbf{v}_r$
 | $\mathrm{Nul} \ A$ | $\mathbf{v}_{r + 1}, \dots, \mathbf{v}_n$
-| $\mathrm{Row} \ A^T$ | $\mathbf{u}_1, \dots, \mathbf{u}_r$
+| $\mathrm{Row} \ A^T$ （ $\mathrm{Col} \ A$ ）| $\mathbf{u}_1, \dots, \mathbf{u}_r$ 或 $A \mathbf{v}_1, \dots, A \mathbf{v}_r$
 | $\mathrm{Nul} \ A^T$ | $\mathbf{u}_{r + 1}, \dots, \mathbf{u}_m$
 
 推理过程：
