@@ -10,5 +10,7 @@
 6. [正交性和最小二乘法](src/06-orthogonality.md)
 7. [对称矩阵和二次型](src/07-symmetric-matrix-and-quadratic-form.md)
 
+其他：
 
-[原书配套网站](https://media.pearsoncmg.com/aw/aw_lay_linearalg_updated_cw_5/about.html)
+* [原书配套网站](https://media.pearsoncmg.com/aw/aw_lay_linearalg_updated_cw_5/about.html)
+* [VS Code Profile Markdown](https://gist.github.com/coin8086/5f9d98174fcc5348f21004a60b222655)
