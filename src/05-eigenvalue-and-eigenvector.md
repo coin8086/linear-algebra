@@ -174,9 +174,17 @@ $M = [[T(\mathbf{b}_1)]_C \ \dots \ [T(\mathbf{b}_n)]_C]$
 
 *定理 8*
 
-设 $A = P D P^{-1}$ ，其中 $D$ 为 $n \times n$ （对角）矩阵，若以 $P$ 的列向量作为 $\mathbb{R}^n$ 的基（记作 $\mathcal{B}$ ），则 $D$ 是变换 $\mathbf{x} \mapsto A \mathbf{x}$ 的 $\mathcal{B}-$ 矩阵。
+设 $A = P D P^{-1}$ ，其中 $D$ 为 $n \times n$ （对角）矩阵，若以 $P$ 的列向量作为 $\mathbb{R}^n$ 的基（记作 $\mathcal{B}$ ），则 $D$ 是变换 $\mathbf{x} \mapsto A \mathbf{x}$ 的 $\mathcal{B}-$ 矩阵（即 $[A \mathbf{x}]_B = D [\mathbf{x}]_B$ ）。
 
-设 $\mathbf{u} = [\mathbf{x}]_P = P^{-1} \mathbf{x}$ ，则映射 $\mathbf{x} \mapsto A \mathbf{x}$ 和 $\mathbf{u} \mapsto D \mathbf{u}$ 描述的相对不同基的同一个线性变换。
+设 $\mathbf{u} = [\mathbf{x}]_B$ ，则映射 $\mathbf{x} \mapsto A \mathbf{x}$ 和 $\mathbf{u} \mapsto D \mathbf{u}$ 描述的相对不同基的同一个线性变换。
+
+证明/思路：
+
+$A = P D P^{-1} \implies P^{-1} A = D P^{-1} \implies P^{-1} A \mathbf{x} = D P^{-1} \mathbf{x}$
+
+又 $[\mathbf{x}]_B = P^{-1} \mathbf{x}$
+
+则 $[A \mathbf{x}]_B = D [\mathbf{x}]_B$
 
 ### 矩阵表示的相似性
 

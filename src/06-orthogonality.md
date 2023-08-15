@@ -233,11 +233,11 @@ $\mathrm{Span} \{ \mathbf{v}_1, \dots, \mathbf{v}_k \} = \mathrm{Span} \{ \mathb
 
 若单位化 $\mathbf{v}_k$ ，则得到一个*标准正交基*。
 
-证明思路：
+证明/思路：
 
 采用“分治”的思想，把 $W$ 的基 $\{ \mathbf{x}_1, \dots, \mathbf{x}_p \}$ 分为两部分 $\{ \mathbf{x}_1, \dots, \mathbf{x}_{p - 1} \}$ 与 $\mathbf{x}_p$ ，并记 $W_{p - 1} = \mathrm{Span} \{ \mathbf{x}_1, \dots, \mathbf{x}_{p - 1} \}$
 
-设 $\mathbf{v}_p = \mathbf{x}_p - \mathrm{proj}_{W_{p - 1}} \mathbf{x}_p$ ，则 $\mathbf{v}_p \in W^{\perp}_{p - 1}$ ，且 $\{ \mathbf{x}_1, \dots, \mathbf{x}_{p - 1}, \mathbf{v}_p \}$ 与 $\{ \mathbf{x}_1, \dots, \mathbf{x}_{p - 1}, \mathbf{x}_p \}$ 都是子空间 $W_p$ （即 $W$ ）的基。
+设 $\mathbf{v}_p = \mathbf{x}_p - \mathrm{proj}_{W_{p - 1}} \mathbf{x}_p$ ，则 $\mathbf{v}_p \in W^{\perp}_{p - 1}$ ，且 $\{ \mathbf{x}_1, \dots, \mathbf{x}_{p - 1}, \mathbf{v}_p \}$ 线性无关。由基定理，它与 $\{ \mathbf{x}_1, \dots, \mathbf{x}_{p - 1}, \mathbf{x}_p \}$ 都是子空间 $W_p$ （即 $W$ ）的基。
 
 对 $\{ \mathbf{x}_1, \dots, \mathbf{x}_{p - 1} \}$ 重复以上方法，直到 $W_1 = \mathrm{Span} \{ \mathbf{x}_1 \}$ ，对它有 $\mathbf{v}_1 = \mathbf{x}_1$
 
@@ -249,7 +249,7 @@ $\mathrm{Span} \{ \mathbf{v}_1, \dots, \mathbf{v}_k \} = \mathrm{Span} \{ \mathb
 
 若 $m \times n$ 矩阵 $A$ 的列线性无关，则 $A$ 可分解为 $A = Q R$ ，其中 $Q$ 是一个 $m \times n$ 矩阵，其列构成 $\mathrm{Col} \ A$ 的一个标准正交基， $R$ 是一个 $n \times n$ 上三角可逆矩阵且其对角线上的元素都是正数。
 
-证明思路：
+证明/思路：
 
 设 $A = [\mathbf{x}_1 \dots \mathbf{x}_n]$ ，由格拉姆-施密特方法把 $A$ 的列向量正交化，有
 
@@ -301,6 +301,21 @@ $\| \mathbf{b} - A \hat{\mathbf{x}}\| \le \| \mathbf{b} - A \mathbf{x} \|$
 
 方程 $A \mathbf{x} = \mathbf{b}$ 的最小二乘解集和*法方程* $A^T A \mathbf{x} = A^T \mathbf{b}$ 的解集相同。
 
+证明/思路：
+
+$A^T A \mathbf{x} = A^T \mathbf{b} \iff A^T (A \mathbf{x} - \mathbf{b}) = \mathbf{0}$
+
+设 $A = [\mathbf{a}_1 \dots \mathbf{a}_n]$ ，则 $\begin{bmatrix*}
+\mathbf{a}_1^T \\
+\vdots \\
+\mathbf{a}_n^T \\
+\end{bmatrix*}
+(A \mathbf{x} - \mathbf{b}) = \mathbf{0}$ ，即
+
+$\mathbf{a}_i^T (A \mathbf{x} - \mathbf{b}) = 0 \iff \mathbf{a}_i \cdot (A \mathbf{x} - \mathbf{b}) = 0, \quad i = 1, \dots, n$
+
+即 $A \mathbf{x} - \mathbf{b}$ 正交于 $\mathrm{Col} \ A$ 生成集中的每一个向量，因此 $A \mathbf{x} - \mathbf{b}$ 正交于 $\mathrm{Col} \ A$ ，即 $A \mathbf{x}$ 是 $\mathbf{b}$ 在 $\mathrm{Col} \ A$ 的正交投影。
+
 *定理 14*
 
 对 $m \times n$ 矩阵 $A$ ，以下条件等价
@@ -308,6 +323,14 @@ $\| \mathbf{b} - A \hat{\mathbf{x}}\| \le \| \mathbf{b} - A \mathbf{x} \|$
 1. 对任意 $\mathbf{b} \in \mathbb{R}^m$ ，方程 $A \mathbf{x} = \mathbf{b}$ 有唯一的最小二乘解
 2. $A$ 的列线性无关
 3. 矩阵 $A^T A$ 可逆
+
+证明/思路：
+
+方程 $A \mathbf{x} = \mathbf{b}$ 有唯一的最小二乘解，即最小二乘法方程 $A^T A \mathbf{x} = A^T \mathbf{b}$ 有唯一解，由可逆矩阵性质可知法方程有唯一解等价于条件3。
+
+条件2等价于条件3需要一条引理：设 $A$ 是 $m \times n$ 矩阵，则 $\mathrm{Nul} \ A = \mathrm{Nul} \ A^T A$ ，即 $A \mathbf{x} = \mathbf{0} \iff A^T A \mathbf{x} = \mathbf{0}$
+
+由此，若方程 $A \mathbf{x} = \mathbf{0}$ 仅有平凡解，则方程 $A^T A \mathbf{x} = \mathbf{0}$ 亦仅有平凡解，即条件2等价于条件3。
 
 ### 特殊情形下最小二乘问题的解
 
@@ -498,7 +521,7 @@ w_n y_n
 
 $\mathrm{SS}(E) = \| W \mathbf{y} - W \hat{\mathbf{y}} \|^2$
 
-设 $\hat{\mathbf{y}} = X \mathbf{\beta}$ ，则
+又 $\hat{\mathbf{y}} = X \mathbf{\beta}$ ，则
 
 $\mathrm{SS}(E) = \| W \mathbf{y} - W \hat{\mathbf{y}} \|^2 = \| W \mathbf{y} - W X \mathbf{\beta} \|^2$
 
@@ -518,7 +541,7 @@ $(W X)^T W X \mathbf{\beta} = (W X)^T W \mathbf{y}$
 
 连续函数可用正、余弦函数的线性组合来逼近。为简化问题，这里只考虑 $C[0, 2 \pi]$ 上的连续函数。
 
-对 $[0, 2 \pi]$ 上的任意连续函数 $f(t)$ ，有（未在书中证明）
+对 $[0, 2 \pi]$ 上的任意连续函数 $f(t)$ ，有
 
 $\displaystyle f(t) = \frac{a_0}{2} + \sum_{k = 1}^{\infty} (a_k \cos kt + b_k \sin kt)$
 
@@ -536,10 +559,12 @@ $\displaystyle f(t) = \frac{a_0}{2} + \sum_{k = 1}^{n} (a_k \cos kt + b_k \sin k
 
 则称为 $f$ 在 $[0, 2 \pi]$ 上的*n 阶傅立叶逼近*。
 
-傅立叶逼近的本质是在内积空间 $C[0, 2 \pi]$ 的一个子空间里寻找一个最佳逼近（函数）。这个子空间具有如下正交基
+傅立叶逼近的本质是在内积空间 $C[0, 2 \pi]$ 的一个子空间里寻找一个最佳逼近（函数）。
 
-$\{ 1,\ \cos t,\ \sin t,\ \dots,\ \cos nt,\ \sin nt \}$
-
-正交函数定义为
+内积函数定义为
 
 $\displaystyle \lang f, g \rang = \int_0^{2 \pi} f(t) g(t) \mathrm{d}t$
+
+子空间的正交基为
+
+$\{ 1,\ \cos t,\ \sin t,\ \dots,\ \cos nt,\ \sin nt \}$
