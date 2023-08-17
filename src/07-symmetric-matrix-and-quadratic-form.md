@@ -141,11 +141,43 @@ $\mathbf{x}^T \mathbf{x} = 1, \ \mathbf{x}^T \mathbf{u}_1 = 0, \ \dots, \ \mathb
 
 *定义*
 
-$m \times n$ 矩阵 $A$ 的*奇异值*是 $A^T A$ 的特征值的平方根，记作 $\sigma_1, \dots, \sigma_n$ ，按递减顺序排列。设 $\mathbf{v}_1, \dots, \mathbf{v}_n$ 是 $A^T A$ 的单位正交的特征向量，则 $A$ 的奇异值是向量 $A \mathbf{v}_1, \dots, A \mathbf{v}_n$ 的长度，即 $\sigma_i = \| A \mathbf{v}_i \|$
+$m \times n$ 矩阵 $A$ 的*奇异值*是 $A^T A$ 的特征值的平方根，记作 $\sigma_1, \dots, \sigma_n$ ，按递减顺序排列。
+
+设 $\mathbf{v}_1, \dots, \mathbf{v}_n$ 是 $A^T A$ 的单位正交的特征向量，则 $A$ 的奇异值是向量 $A \mathbf{v}_1, \dots, A \mathbf{v}_n$ 的长度，即 $\sigma_i = \| A \mathbf{v}_i \|$
+
+证明/思路：
+
+$\| A \mathbf{v}_i \|^2 = (A \mathbf{v}_i) \cdot (A \mathbf{v}_i) = (A \mathbf{v}_i)^T (A \mathbf{v}_i) = \mathbf{v}_i^T (A^T A \mathbf{v}_i) = \mathbf{v}_i^T (\lambda_i \mathbf{v}_i) = \lambda_i$
+
+因此
+
+$\sigma_i = \sqrt{\lambda_i} = \| A \mathbf{v}_i \|$
+
+由此亦可得出： $A^T A$ 的特征值总是非负的。
 
 *定理 9*
 
-设 $\mathbf{v}_1, \dots, \mathbf{v}_n$ 是 $A^T A$ 的单位正交的特征向量，且其对应的特征值满足 $\lambda_1 \ge \dots \ge \lambda_n$ ，若 $A$ 有 $r$ 个正的奇异值，则 $\mathrm{rank} \ A = r$ ，且 $\{ A \mathbf{v}_1, \dots, A \mathbf{v}_r\}$ 是 $\mathrm{Col} \ A$ 的一个正交基。
+对 $m \times n$ 矩阵 $A$ ，设 $\mathbf{v}_1, \dots, \mathbf{v}_n$ 是 $A^T A$ 的单位正交的特征向量，且其对应的特征值满足 $\lambda_1 \ge \dots \ge \lambda_n$ ，若 $A$ 有 $r$ 个正的奇异值，则 $\{ A \mathbf{v}_1, \dots, A \mathbf{v}_r\}$ 是 $\mathrm{Col} \ A$ 的一个正交基，且 $\mathrm{rank} \ A = r$
+
+证明/思路：
+
+设 $x = c_1 A \mathbf{v}_1 + \dots + c_r A \mathbf{v}_r$ ，则 $x = A (c_1 \mathbf{v}_1 + \dots + c_r \mathbf{v}_r)$ ，即
+
+$x \in \mathrm{Span} \{ A \mathbf{v}_1, \dots, A \mathbf{v}_r\} \implies x \in \mathrm{Col} \ A$
+
+注意到 $\mathbf{v}_1, \dots, \mathbf{v}_n$ 是 $\mathbb{R}^n$ 的一个基，设 $x = A \mathbf{y}, \ \mathbf{y} \in \mathbb{R}^n$ ，其中 $\mathbf{y} = c_1 \mathbf{v}_1 + \dots + c_n \mathbf{v}_n$ ，则
+
+$x = c_1 A \mathbf{v}_1 + \dots + c_n A \mathbf{v}_n$
+
+又当 $i > r$ 时， $\| A \mathbf{v}_i \| = \sigma_i = 0 \implies A \mathbf{v}_i = 0$ ，故
+
+$x = c_1 A \mathbf{v}_1 + \dots + c_r A \mathbf{v}_r$ ，即
+
+$x \in \mathrm{Col} \ A \implies x \in \mathrm{Span} \{ A \mathbf{v}_1, \dots, A \mathbf{v}_r\}$
+
+综上有 $\mathrm{Col} \ A = \mathrm{Span} \{ A \mathbf{v}_1, \dots, A \mathbf{v}_r\}$
+
+又 $(A \mathbf{v}_i)^T(A \mathbf{v}_j) = \mathbf{v}_i^T A^T A \mathbf{v}_j = \mathbf{v}_i^T (\lambda_j \mathbf{v}_j) = 0, \ i \ne j$ ，故 $\{ A \mathbf{v}_1, \dots, A \mathbf{v}_r\}$ 是 $\mathrm{Col} \ A$ 的一个正交基。
 
 ### 奇异值分解
 
@@ -154,18 +186,54 @@ $m \times n$ 矩阵 $A$ 的*奇异值*是 $A^T A$ 的特征值的平方根，记
 若 $A$ 是秩为 $r$ 的 $m \times n$ 矩阵，则存在一个 $m \times n$ 矩阵 $\Sigma = \begin{bmatrix*}
 D & 0 \\
 0 & 0 \\
-\end{bmatrix*}$ ，其中 $D$ 是一个 $r \times r$ 对角矩阵，其对角线元素是 $A$ 的前 $r$ 个奇异值， $\sigma_1 \ge \dots \ge \sigma_r > 0$ ，同时存在一个 $m \times m$ 正交矩阵 $U$ 和一个 $n \times n$ 正交矩阵 $V$ ，使得 $A = U \Sigma V^T$
+\end{bmatrix*}$ ，其中 $D = \begin{bmatrix*}
+\sigma_1 & \dots & 0 \\
+\vdots & \ddots & \vdots \\
+0 & \dots & \sigma_r \\
+\end{bmatrix*}$ 其对角线上的元素是 $A$ （全部）的正奇异值且 $\sigma_1 \ge \dots \ge \sigma_r > 0$ ；同时存在一个 $m \times m$ 正交矩阵 $U$ 和一个 $n \times n$ 正交矩阵 $V$ ，使得 $A = U \Sigma V^T$
 
 在以上分解中， $U$ 的列称为 $A$ 的*左奇异向量*， $V$ 的列称为 $A$ 的*右奇异向量*。
 
 $A = U \Sigma V^T$ 称为 $A$ 的一个*奇异值分解*（或SVD）。 $A$ 的奇异值分解不唯一。
 
+证明/思路：
+
+$A = U \Sigma V^T \iff A V = U \Sigma$
+
+设 $V = [\mathbf{v}_1 \ \dots \ \mathbf{v}_n], \ U = [\mathbf{u}_1 \ \dots \ \mathbf{u}_m]$ ，则
+
+$A V =[A \mathbf{v}_1 \ \dots \ A \mathbf{v}_n]$
+
+$U \Sigma = [\sigma_1 \mathbf{u}_1 \ \dots \ \sigma_r \mathbf{u}_r \ \mathbf{0} \dots \ \mathbf{0}]$
+
+$A V = U \Sigma \iff \begin{cases}
+A \mathbf{v}_i = \sigma_i \mathbf{u}_i & 1 \le i \le r\\
+A \mathbf{v}_i = \mathbf{0} & r < i \le n \\
+\end{cases}$
+
+可见，若 $V$ 的列是 $A^T A$ 的单位正交的特征向量，并设 $\displaystyle \mathbf{u}_i = \frac{A \mathbf{v}_i}{\sigma_i} = \frac{A \mathbf{v}_i}{\| A \mathbf{v}_i \|} \quad (1 \le i \le r)$ ，则以上条件可以满足；对于 $\mathbf{u}_i \; r < i \le m$ ，只要扩充 $\{ \mathbf{u}_1, \dots, \mathbf{u}_r \}$ 得到 $\mathbb{R}^m$ 的一个单位正交基即可。
+
 实际上，若 $m \times n$ 矩阵 $A$ 可以表示为 $A = U \Sigma V^T$ ，其中 $U$ 是 $m \times m$ 正交矩阵、 $V$ 是 $n \times n$ 正交矩阵， $\Sigma = \begin{bmatrix*}
 D & 0 \\
 0 & 0 \\
-\end{bmatrix*}$ ，其中 $D$ 是 $r \times r$ 对角矩阵且对角线上的元素都是正数，则 $U$ 的列是 $A A^T$ 的特征向量， $V$ 的列是 $A^T A$ 的特征向量， $D$ 对角线上的元素是 $A$ 的（全部）正奇异值。
+\end{bmatrix*}$ ，其中 $D$ 是 $r \times r$ 对角矩阵且对角线上的元素都是正数，则 $U$ 的列是 $A A^T$ 的特征向量， $V$ 的列是 $A^T A$ 的特征向量， $D$ 对角线上的元素是 $A$ （全部）的正奇异值。
 
-同时，由以上事实可以推得， $A^T$ 与 $A$ 有相同的正奇异值。
+证明/思路：
+
+$A A^T = (U \Sigma V^T)(U \Sigma V^T)^T = U (\Sigma \Sigma^T) U^T$
+
+其中 $\Sigma \Sigma^T = \begin{bmatrix*}
+D^2 & 0 \\
+0 & 0 \\
+\end{bmatrix*}$ 是一个 $m \times m$ 对角矩阵，其对角线上的元素是 $\sigma_1^2, \dots, \sigma_r^2, 0, \dots, 0$ （共 $m$ 个）
+
+根据[5.3节](05-eigenvalue-and-eigenvector.md#53-对角化)定理5——可对角化矩阵的充要条件， $U$ 的列是 $A A^T$ 的 $m$ 个线性无关的特征向量，对应的特征值是 $\sigma_1^2, \dots, \sigma_r^2, 0, \dots, 0$ （共 $m$ 个）
+
+同理， $A^T A = (U \Sigma V^T)^T U \Sigma V^T = V (\Sigma^T \Sigma) V^T$
+
+其中 $\Sigma^T \Sigma$ 是一个 $n \times n$ 对角矩阵，其对角线上的元素是 $\sigma_1^2, \dots, \sigma_r^2, 0, \dots, 0$ （共 $n$ 个）
+
+同样根据可对角化定理， $V$ 的列是 $A^T A$ 的 $n$ 个线性无关的特征向量，对应特征值是 $\sigma_1^2, \dots, \sigma_r^2, 0, \dots, 0$ （共 $n$ 个）
 
 ### 基本子空间的基
 
@@ -178,15 +246,15 @@ D & 0 \\
 | $\mathrm{Row} \ A^T$ （ $\mathrm{Col} \ A$ ）| $\mathbf{u}_1, \dots, \mathbf{u}_r$ 或 $A \mathbf{v}_1, \dots, A \mathbf{v}_r$
 | $\mathrm{Nul} \ A^T$ | $\mathbf{u}_{r + 1}, \dots, \mathbf{u}_m$
 
-推理过程：
+证明/思路：
 
-由定理 9， $A \mathbf{v}_1, \dots, A \mathbf{v}_r$ 是 $\mathrm{Col} \ A$ （即 $\mathrm{Row} \ A^T$ ）的一个正交基， 又 $\displaystyle \frac{A \mathbf{v}_i}{\sigma_i} = \mathbf{u}_i \ (1 \le i \le r)$ ，故 $\mathbf{u}_1, \dots, \mathbf{u}_r$ 是 $\mathrm{Col} \ A$ 的一个单位正交基。
+对于 $\mathrm{Col} \ A$ ：由定理10的推论， $\mathbf{v}_1, \dots, \mathbf{v}_n$ 是 $A^T A$ 的单位正交的特征向量，再由定理9， $A \mathbf{v}_1, \dots, A \mathbf{v}_r$ 是 $\mathrm{Col} \ A$ 的一个正交基；由定理10， $A V = U \Sigma$ 可推得 $A \mathbf{v}_i = \sigma_i \mathbf{u}_i$ （参见定理10证明过程），当 $1 \le i \le r$ 时 $\sigma_i \ne 0$ ，有 $\displaystyle \mathbf{u}_i = \frac{A \mathbf{v}_i}{\sigma_i} = \frac{A \mathbf{v}_i}{\| A \mathbf{v}_i \|}$ ，故 $\mathbf{u}_1, \dots, \mathbf{u}_r$ 是 $\mathrm{Col} \ A$ 的一个单位正交基。
 
-由秩定理， $\dim \mathrm{Nul} \ A^T = m - r$ ，又由子空间正交性 $\mathrm{Nul} \ A^T = (\mathrm{Row} \ A^T)^{\perp}$ ，故 $\mathbf{u}_{r + 1}, \dots, \mathbf{u}_m$ 是 $\mathrm{Nul} \ A^T$ 的一个单位正交基。
+对于 $\mathrm{Nul} \ A^T$ ：由[6.1节](06-orthogonality.md#61-内积长度和正交性)定理3 $\mathrm{Nul} \ A^T = (\mathrm{Row} \ A^T)^{\perp}$ ，又 $\mathbf{u}_1, \dots, \mathbf{u}_m$ 是 $\mathbb{R}^m$ 的一个单位正交基，且其中 $\mathbf{u}_1, \dots, \mathbf{u}_r$ 是 $\mathrm{Row} \ A^T$ 的一个单位正交基，则 $\mathbf{u}_{r + 1}, \dots, \mathbf{u}_m$ 是 $\mathrm{Nul} \ A^T$ 的一个单位正交基。
 
-由秩定理， $\dim \mathrm{Nul} \ A = n - r$ ，又由 $A \mathbf{v}_i = 0 \ (r + 1 \le i \le n)$ 可知 $\mathbf{v}_{r + 1}, \dots, \mathbf{v}_n$ 是 $\mathrm{Nul} \ A$ 的 $n - r$ 个线性无关的向量，再由基定理知它们构成了 $\mathrm{Nul} \ A$ 的一个基。
+对于 $\mathrm{Nul} \ A$ ：由前述证明可知 $A \mathbf{v}_i = 0 \ (r < i \le n)$ ，即 $\mathbf{v}_i \in \mathrm{Nul} \ A \ (r < i \le n)$ ， $\mathbf{v}_{r + 1}, \dots, \mathbf{v}_n$ 是 $\mathrm{Nul} \ A$ 的 $n - r$ 个线性无关的向量；又由秩定理， $\dim \mathrm{Nul} \ A = n - r$ ，故它们构成了 $\mathrm{Nul} \ A$ 的一个基。
 
-同样，由秩及子空间正交性 $\mathrm{Row} \ A = (\mathrm{Nul} \ A)^{\perp}$ 可知 $\mathbf{v}_1, \dots, \mathbf{v}_r$ 是 $\mathrm{Row} \ A$ 的一个单位正交基。
+对于 $\mathrm{Row} \ A$ ：同样由 $\mathrm{Row} \ A = (\mathrm{Nul} \ A)^{\perp}$ ，且 $\mathbf{v}_1, \dots, \mathbf{v}_n$ 是 $\mathbb{R}^n$ 的一个单位正交基，其中 $\mathbf{v}_{r + 1}, \dots, \mathbf{v}_n$ 是 $\mathrm{Nul} \ A$ 的一个基，则 $\mathbf{v}_1, \dots, \mathbf{v}_r$ 是 $\mathrm{Row} \ A$ 的一个基。
 
 ### 简化的奇异值分解、伪逆和最小二乘解
 
@@ -215,7 +283,7 @@ V_{n - r}^T \\
 
 *伪逆*
 
-由简化的奇异值分解，定义 $A$ 的*伪逆为 $A^+ = V_r D^{-1} U_r^T$
+由简化的奇异值分解，定义 $A$ 的*伪逆*为 $A^+ = V_r D^{-1} U_r^T$
 
 *最小二乘解*
 
