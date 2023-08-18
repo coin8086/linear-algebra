@@ -7,7 +7,7 @@
     - [$\\mathbb{R}^n$ 中的距离](#mathbbrn-中的距离)
     - [正交向量](#正交向量)
     - [正交补](#正交补)
-    - [$\\mathbb{R}^3$ 和 $\\mathbb{R}^2$ 中的角度](#mathbbr3-和-mathbbr2-中的角度)
+    - [$\\mathbb{R}^3$ 和 $\\mathbb{R}^2$ 中的角度 \*](#mathbbr3-和-mathbbr2-中的角度-)
   - [6.2 正交集](#62-正交集)
     - [正交集](#正交集)
     - [正交投影](#正交投影)
@@ -115,7 +115,7 @@ $A \mathbf{x} = \mathbf{0} \implies r_i \mathbf{x} = 0, \quad i = 1, 2, \dots, m
 
 即 $\mathbf{x}$ 正交于 $\mathrm{Row} \ A$ 生成集中的每一个向量。
 
-### $\mathbb{R}^3$ 和 $\mathbb{R}^2$ 中的角度
+### $\mathbb{R}^3$ 和 $\mathbb{R}^2$ 中的角度 *
 
 若 $\mathbf{u}$ 、 $\mathbf{v}$ 是 $\mathbb{R}^2$ 或 $\mathbb{R}^3$ 中的向量，它们的夹角为 $\theta$ ，则
 

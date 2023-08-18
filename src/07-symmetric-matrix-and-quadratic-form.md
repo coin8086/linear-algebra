@@ -68,13 +68,13 @@ $A = P D P^T = P D P^{-1}$
 
 则 $A = \lambda_1 \mathbf{u}_1 \mathbf{u}_1^T + \dots + \lambda_n \mathbf{u}_n \mathbf{u}_n^T$
 
-上式将矩阵 $A$ 拆分为 $A$ 的谱确定的矩阵之和，因此称为矩阵 $A$ 的*谱分解*。其中，每个矩阵 $\mathbf{u}_i \mathbf{u}_i^T$ 都是*投影矩阵* —— 对每个 $\mathbf{x} \in \mathbb{R}^n$ ， $\mathbf{u}_i \mathbf{u}_i^T \mathbf{x}$ 是 $\mathbf{x}$ 在 $\mathbf{u}_i$ 生成的子空间（直线）上的投影。
+上式将矩阵 $A$ 拆分为 $A$ 的谱确定的矩阵之和，因此称为矩阵 $A$ 的*谱分解*。其中，每个矩阵 $\mathbf{u}_i \mathbf{u}_i^T$ 都是*投影矩阵* —— 对每个 $\mathbf{x} \in \mathbb{R}^n$ ， $\mathbf{u}_i \mathbf{u}_i^T \mathbf{x}$ 是 $\mathbf{x}$ 在 $\mathbf{u}_i$ 生成的子空间（直线）上的投影（参见[6.3节](06-orthogonality.md#63-正交投影)定理10）。
 
 ### 投影矩阵 *
 
 若 $n \times n$ 矩阵 $A$ 是对称的且 $A^2 = A$ ，则称 $A$ 为*投影矩阵* —— 对任意 $\mathbf{x} \in \mathbb{R}^n$ ， $A \mathbf{x}$ 是 $\mathbf{x}$ 在 $A$ 的列空间的正交投影。
 
-可以通过最小二乘法方程或 SVD 分解来证明以上命题。
+可以通过最小二乘法方程或 SVD 分解来证明以上命题（参见习题36）。
 
 ## 7.2 二次型
 
@@ -86,7 +86,7 @@ $A = P D P^T = P D P^{-1}$
 
 *定理 4（主轴定理）*
 
-设有二次型 $\mathbf{x}^T A \mathbf{x}$ ，其中 $A$ 是一个 $n \times n$ 对称矩阵，则存在一个正交矩阵 $P$ ，做变量代换 $\mathbf{x} = P \mathbf{y}$ ，使得 $\mathbf{x}^T A \mathbf{x} = \mathbf{y}^T D \mathbf{y}$ ，而后者不含交叉乘积项。
+设有二次型 $\mathbf{x}^T A \mathbf{x}$ ，其中 $A$ 是一个 $n \times n$ 对称矩阵，则存在一个正交矩阵 $P$ ，做变量代换 $\mathbf{x} = P \mathbf{y}$ ，使得 $\mathbf{x}^T A \mathbf{x} = \mathbf{y}^T D \mathbf{y}$ ，而后者不含交叉乘积（即 $x_i x_j, \ i \ne j$ ）项。
 
 实际上， $A$ 可正交对角化为 $A = P D P^{-1}$ ， $P$ 、 $D$ 满足以上定理。
 
@@ -287,9 +287,9 @@ V_{n - r}^T \\
 
 *最小二乘解*
 
-对方程 $A \mathbf{x} = \mathbf{b}$ ，设 $\hat{\mathbf{x}} = A^+ \mathbf{b}$ ，则 $A \hat{\mathbf{x}} = \dots = U_r U_r^T \mathbf{b}$
+对方程 $A \mathbf{x} = \mathbf{b}$ ，设 $\hat{\mathbf{x}} = A^+ \mathbf{b}$ ，则 $A \hat{\mathbf{x}} = U_r U_r^T \mathbf{b}$
 
-$U_r$ 的列构成 $\mathrm{Col} \ A$ 的一个单位正交基，故 $U_r U_r^T \mathbf{b}$ 是 $\mathbf{b}$ 在 $\mathrm{Col} \ A$ 上的正交投影。
+$U_r$ 的列构成 $\mathrm{Col} \ A$ 的一个单位正交基，由[6.3节](06-orthogonality.md#63-正交投影)定理10， $U_r U_r^T$ 是一个投影矩阵， $U_r U_r^T \mathbf{b}$ 是 $\mathbf{b}$ 在 $\mathrm{Col} \ A$ 上的正交投影。
 
 
 ## 7.5 图像处理和统计学的应用
