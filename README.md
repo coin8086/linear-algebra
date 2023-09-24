@@ -1,4 +1,4 @@
-# 【线性代数及其应用（Linear Algebra and Its Applications 5th Edition）】笔记
+# 【线性代数及其应用（Linear Algebra and Its Applications, 5E）】笔记
 
 目录：
 
