@@ -416,30 +416,30 @@ $y = \beta_0 f_0(u, v) + \beta_1 f_1(u, v) + \dots + \beta_k f_k(u, v)$
 
 ### 内积空间的定义
 
-向量空间 $V$ 上的*内积*是一个函数：对于任意 $\mathbf{u}, \mathbf{v} \in V$ ，存在一个实数 $\lang \mathbf{u}, \mathbf{v} \rang$ 满足如下公理，其中 $\mathbf{u}, \mathbf{v}, \mathbf{w} \in V, \ c \in \mathbb{R}$
+向量空间 $V$ 上的*内积*是一个函数：对于任意 $\mathbf{u}, \mathbf{v} \in V$ ，存在一个实数 $\langle \mathbf{u}, \mathbf{v} \rangle$ 满足如下公理，其中 $\mathbf{u}, \mathbf{v}, \mathbf{w} \in V, \ c \in \mathbb{R}$
 
-1. $\lang \mathbf{u}, \mathbf{v} \rang = \lang \mathbf{v}, \mathbf{u} \rang$
-2. $\lang \mathbf{u} + \mathbf{v}, \mathbf{w} \rang = \lang \mathbf{u}, \mathbf{w} \rang + \lang \mathbf{v}, \mathbf{w} \rang$
-3. $\lang c \mathbf{u}, \mathbf{v} \rang = c \lang \mathbf{u}, \mathbf{v} \rang$
-4. $\lang \mathbf{u}, \mathbf{u} \rang \ge 0$ ，且 $\lang \mathbf{u}, \mathbf{u} \rang = 0 \iff \mathbf{u} = \mathbf{0}$
+1. $\langle \mathbf{u}, \mathbf{v} \rangle = \langle \mathbf{v}, \mathbf{u} \rangle$
+2. $\langle \mathbf{u} + \mathbf{v}, \mathbf{w} \rangle = \langle \mathbf{u}, \mathbf{w} \rangle + \langle \mathbf{v}, \mathbf{w} \rangle$
+3. $\langle c \mathbf{u}, \mathbf{v} \rangle = c \langle \mathbf{u}, \mathbf{v} \rangle$
+4. $\langle \mathbf{u}, \mathbf{u} \rangle \ge 0$ ，且 $\langle \mathbf{u}, \mathbf{u} \rangle = 0 \iff \mathbf{u} = \mathbf{0}$
 
 一个定义了内积函数的向量空间称为*内积空间*。
 
 由以上公里可推出
 
-* $\lang \mathbf{u}, \mathbf{0} \rang = 0$
+* $\langle \mathbf{u}, \mathbf{0} \rangle = 0$
 
 ### 长度、距离和正交性
 
 设 $V$ 是一个内积空间，其向量 $\mathbf{v}$ 的*长度*或*范数*定义为
 
-$\| \mathbf{v} \| = \sqrt{\lang \mathbf{v}, \mathbf{v} \rang}$
+$\| \mathbf{v} \| = \sqrt{\langle \mathbf{v}, \mathbf{v} \rangle}$
 
 长度为 1 的向量称为单位向量。
 
 向量 $\mathbf{u}, \mathbf{v}$ 之间的*距离*是 $\| \mathbf{u} - \mathbf{v} \|$
 
-向量 $\mathbf{u}, \mathbf{v}$ 正交即 $\lang \mathbf{u}, \mathbf{v} \rang = 0$
+向量 $\mathbf{u}, \mathbf{v}$ 正交即 $\langle \mathbf{u}, \mathbf{v} \rangle = 0$
 
 ### 格拉姆-施密特方法
 
@@ -459,7 +459,7 @@ $\| \mathbf{v} \| = \sqrt{\lang \mathbf{v}, \mathbf{v} \rang}$
 
 对任意 $\mathbf{u}, \mathbf{v} \in V$ ，有
 
-$| \lang \mathbf{u}, \mathbf{v} \rang | \le \| \mathbf{u} \| \| \mathbf{v} \|$
+$| \langle \mathbf{u}, \mathbf{v} \rangle | \le \| \mathbf{u} \| \| \mathbf{v} \|$
 
 *定理 17（三角不等式）*
 
@@ -471,7 +471,7 @@ $\| \mathbf{u} + \mathbf{v} \| \le \| \mathbf{u} \| + \| \mathbf{v} \|$
 
 C[a, b] 是所有在区间 $[a, b]$ 上连续的函数构成的向量空间。它也是一个内积空间，如果定义如下内积
 
-$\displaystyle \lang f, g \rang = \int_a^b f(t) g(t) \mathrm{d}t$
+$\displaystyle \langle f, g \rangle = \int_a^b f(t) g(t) \mathrm{d}t$
 
 ## 6.8 内积空间的应用
 
@@ -489,7 +489,7 @@ $\mathrm{SS}(E) = w_1^2(y_1 - \hat{y_1})^2 + \dots + w_n^2(y_n - \hat{y_n})^2$
 
 此时，可以定义内积为
 
-$\lang x, y \rang = w_1^2 x_1 y_1 + \dots + w_n^2 x_n y_n$
+$\langle x, y \rangle = w_1^2 x_1 y_1 + \dots + w_n^2 x_n y_n$
 
 注意：在 $\mathbb{R}^n$ 上解决一般最小二乘问题的法方程不适用于“自定义”内积。
 
@@ -563,7 +563,7 @@ $\displaystyle f(t) = \frac{a_0}{2} + \sum_{k = 1}^{n} (a_k \cos kt + b_k \sin k
 
 内积函数定义为
 
-$\displaystyle \lang f, g \rang = \int_0^{2 \pi} f(t) g(t) \mathrm{d}t$
+$\displaystyle \langle f, g \rangle = \int_0^{2 \pi} f(t) g(t) \mathrm{d}t$
 
 子空间的正交基为
 
