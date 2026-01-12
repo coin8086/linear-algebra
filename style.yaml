@@ -1,0 +1,12 @@
+documentclass: ctexbook
+papersize: a4
+geometry: margin=2cm
+header-includes:
+  - \usepackage{fancyhdr}
+  - \pagestyle{fancy}
+  - \renewcommand{\headrulewidth}{0pt}
+  # - \fancyhf{}
+  # - \fancyhead[L]{\leftmark}
+  # - \fancyhead[R]{\rightmark}
+  # - \fancyfoot[C]{\thepage}
+  - \usepackage{mathtools}
