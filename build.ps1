@@ -3,6 +3,10 @@ param (
   [string]
   $inputFile,
 
+  [Alias('n')]
+  [string]
+  $bookName = 'linear-algebra',
+
   [Alias('d')]
   [switch]
   $debug,
@@ -63,15 +67,22 @@ else {
 
 CreateOutDir
 
-$inputFiles | ForEach-Object {
-  $inputFileName = $_
-  $baseName = Split-Path $inputFileName -LeafBase
-  $outputFileName = "$baseName.pdf"
-
-  $cmd = "docker run --rm -v '$($PSScriptRoot):/data' louirobert/pandoc /data/$srcDirName/$inputFileName -o /data/$outDirName/$outputFileName --pdf-engine=lualatex --top-level-division=chapter --metadata-file /data/style.yaml --resource-path /data/$srcDirName"
-
-  if ($debug) {
-    $cmd += " --verbose"
-  }
-  RunCmd $cmd
+$filesInContainer = $inputFiles | ForEach-Object {
+  "'/data/$srcDirName/$_'"
 }
+$fileArgs = $filesInContainer -join ' '
+
+if ($inputFiles.Length -gt 1) {
+  $outFileName = $bookName
+}
+else {
+  $outFileName = $inputFiles[0].Split('.')[0]
+}
+
+$cmd = "docker run --rm -v '$($PSScriptRoot):/data' louirobert/pandoc $fileArgs -o '/data/$outDirName/$outFileName.pdf' --toc --pdf-engine=lualatex --top-level-division=chapter --metadata-file /data/style.yaml --resource-path /data/$srcDirName"
+
+if ($debug) {
+  $cmd += " --verbose"
+}
+
+RunCmd $cmd
