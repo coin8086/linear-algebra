@@ -41,11 +41,13 @@ $$A = P D P^T = P D P^{-1}$$
 
 设矩阵 $A$ 可正交对角化为 $A = P D P^T$
 
-又设 $P = [\mathbf{u}_1 \dots \mathbf{u}_n]$ ， $D = \begin{bmatrix*}
+又设
+
+$$P = [\mathbf{u}_1 \dots \mathbf{u}_n], \; D = \begin{bmatrix*}
 \lambda_1 \\
 & \ddots \\
 & & \lambda_n
-\end{bmatrix*}$
+\end{bmatrix*}$$
 
 则
 

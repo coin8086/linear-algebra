@@ -238,7 +238,10 @@ r & 0 \\
 
 设 $A$ 是 $2 \times 2$ 实矩阵，有复特征值 $\lambda = a - b \imath$ 及对应的复特征向量 $\mathbf{v}$ ，则
 
-$A = P C P^{-1}$ 其中 $P = [\Re \mathbf{v} \ \Im \mathbf{v}]$ ， $C = \begin{bmatrix*}[r]
+$$A = P C P^{-1}$$
+
+其中 $P = [\Re \mathbf{v} \ \Im \mathbf{v}]$ ，
+$C = \begin{bmatrix*}[r]
 a & -b \\
 b & a
 \end{bmatrix*}$
