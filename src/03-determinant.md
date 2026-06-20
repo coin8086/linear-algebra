@@ -10,11 +10,11 @@
 
 当 $n > 1$ 时，
 
-$\displaystyle \det A = \sum_{k = 1}^n a_{1k} C_{1k}$
+$$\det A = \sum_{k = 1}^n a_{1k} C_{1k}$$
 
 这个公式称为按 $A$ 的*第一行的余因子展开式*。其中，
 
-$C_{ij} = (-1)^{i + j} \det A_{ij}$
+$$C_{ij} = (-1)^{i + j} \det A_{ij}$$
 
 称为 $A$ 的 $(i, j)$ *余因子*。$A_{ij}$ 表示删除 $A$ 中第 $i$ 行和第 $j$ 列而得到的子矩阵。
 
@@ -58,7 +58,7 @@ $C_{ij} = (-1)^{i + j} \det A_{ij}$
 
 设 $A$ 是一个 $n \times n$ 可逆矩阵，对 $\mathbb{R}^n$ 中任意向量 $\mathbf{b}$ ，方程 $A \mathbf{x} = \mathbf{b}$ 的唯一解可由下式给出
 
-$\displaystyle x_i = \frac{\det A_i(\mathbf{b})}{\det A}, \quad i = 1, \dots, n$
+$$x_i = \frac{\det A_i(\mathbf{b})}{\det A}, \quad i = 1, \dots, n$$
 
 其中， $A_i(\mathbf{b})$ 表示 $A$ 的第 $i$ 列由向量 $\mathbf{b}$ 替换得到的矩阵。
 
@@ -68,17 +68,17 @@ $\displaystyle x_i = \frac{\det A_i(\mathbf{b})}{\det A}, \quad i = 1, \dots, n$
 
 设 $A$ 是一个 $n \times n$ 可逆矩阵，则
 
-$\displaystyle A^{-1} = \frac{\mathrm{adj} \ A}{\det A}$
+$$A^{-1} = \frac{\mathrm{adj} \ A}{\det A}$$
 
 其中，
 
-$\mathrm{adj} \ A =
+$$\mathrm{adj} \ A =
 \begin{bmatrix*}
-C_{11} & C_{21} & \dots & C_{n1} \\
-C_{12} & C_{22} & \dots & C_{n2} \\
-\vdots & \vdots &       & \vdots \\
-C_{1n} & C_{2n} & \dots & C_{nn}
-\end{bmatrix*}$
+  C_{11} & C_{21} & \dots & C_{n1} \\
+  C_{12} & C_{22} & \dots & C_{n2} \\
+  \vdots & \vdots &       & \vdots \\
+  C_{1n} & C_{2n} & \dots & C_{nn}
+\end{bmatrix*}$$
 
 称为 $A$ 的*伴随矩阵*。
 
