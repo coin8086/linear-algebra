@@ -79,7 +79,7 @@ else {
   $outFileName = $inputFiles[0].Split('.')[0]
 }
 
-$cmd = "docker run --rm -v '$($PSScriptRoot):/data' louirobert/pandoc $fileArgs -o '/data/$outDirName/$outFileName.pdf' --toc --pdf-engine=lualatex --top-level-division=chapter --metadata-file /data/style.yaml --resource-path /data/$srcDirName"
+$cmd = "docker run --rm -v '$($PSScriptRoot):/data' louirobert/pandoc $fileArgs -o '/data/$outDirName/$outFileName.pdf' --toc --pdf-engine=lualatex --top-level-division=chapter --metadata-file /data/style.yaml --resource-path /data/$srcDirName --include-before-body=/data/$srcDirName/cover.tex"
 
 if ($debug) {
   $cmd += " --verbose"
