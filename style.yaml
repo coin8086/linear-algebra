@@ -2,6 +2,7 @@ documentclass: ctexbook
 papersize: a4
 geometry: margin=2cm
 header-includes:
+  - \usepackage{mathtools}
   - \usepackage{fancyhdr}
   - \pagestyle{fancy}
   - \renewcommand{\headrulewidth}{0pt}
@@ -9,4 +10,17 @@ header-includes:
   # - \fancyhead[L]{\leftmark}
   # - \fancyhead[R]{\rightmark}
   # - \fancyfoot[C]{\thepage}
-  - \usepackage{mathtools}
+
+  # Use special font style for block quotes in Markdown
+  - |
+    \let\oldquote\quote
+    \let\endoldquote\endquote
+    \renewenvironment{quote}
+      {\oldquote\kaishu}
+      {\endoldquote}
+
+  # Force place pictures where they're as in Markdown
+  - \usepackage{float}
+  - \makeatletter
+  - \def\fps@figure{H}
+  - \makeatother
