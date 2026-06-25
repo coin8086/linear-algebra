@@ -127,7 +127,7 @@ $$\begin{bmatrix*}[r]
 
 *基本变量与自由变量*
 
-用行化简算法把方程组的增广矩阵化为简化阶梯型，对应于主元列的变量称为基本变量，其他变量称为自由变量。
+用行化简算法把方程组的增广矩阵化为简化阶梯型后，对应于主元列的变量称为基本变量，其他变量称为自由变量。
 
 *解集的参数表示*
 
@@ -155,12 +155,18 @@ x_3 \; \text{是自由变量}
 
 $$[0 \dots 0 \; b], \quad b \ne 0$$
 
-的行。
-
-若方程组相容，则
+的行。若方程组相容，则
 
 1. 当没有自由变量时，有唯一解
 2. 当存在自由变量时，有无穷多解
+
+*用行简化算法解线性方程组的步骤*
+
+1. 写出方程组的增广矩阵
+2. 用行化简算法把增广矩阵化为阶梯型并确定方程组是否相容，如果不相容则无解、停止
+3. 继续行化简算法得到简化阶梯型
+4. 写出简化阶梯型矩阵对应的方程组
+5. 把上一步得到的每个非零方程改写为用自由变量（如果有）表示基本变量的形式
 
 ## 1.3 向量方程
 
@@ -224,7 +230,7 @@ $$\begin{bmatrix*}
 
 *向量生成的集合*
 
-设 $\mathbf{v}_1, \mathbf{v}_2, \dots, \mathbf{v}_p$ 是 $\mathbb{R}^n$ 中的向量，则它们的所有线性组合所形成的集合表示为 $\mathrm{Span} \{\mathbf{v}_1, \mathbf{v}_2, \dots, \mathbf{v}_p \}$ ，称为由 $\mathbf{v}_1, \mathbf{v}_2, \dots, \mathbf{v}_p$ 所生成（或张成）的 $\mathbb{R}^n$ 的子集，即
+设 $\mathbf{v}_1, \mathbf{v}_2, \dots, \mathbf{v}_p$ 是 $\mathbb{R}^n$ 中的向量，则它们的所有线性组合所形成的集合可表示为 $\mathrm{Span} \{\mathbf{v}_1, \mathbf{v}_2, \dots, \mathbf{v}_p \}$ ，称为由 $\mathbf{v}_1, \mathbf{v}_2, \dots, \mathbf{v}_p$ 所生成（或张成）的 $\mathbb{R}^n$ 的子集，即
 
 $$\mathrm{Span} \{\mathbf{v}_1, \mathbf{v}_2, \dots, \mathbf{v}_p \} = \{ c_1 \mathbf{v}_1 + c_2 \mathbf{v}_2 + \dots + c_p \mathbf{v}_p \; | \; c_i \in \mathbb{R}, \; v_i \in \mathbb{R}^n \}$$
 
@@ -232,14 +238,14 @@ $$\mathrm{Span} \{\mathbf{v}_1, \mathbf{v}_2, \dots, \mathbf{v}_p \} = \{ c_1 \m
 
 *$\mathrm{Span} \{\mathbf{v} \}$ 与 $\mathrm{Span} \{\mathbf{u}, \mathbf{v} \}$ 的几何意义*
 
-若 $\mathbf{u}, \mathbf{v} \in \mathbb{R}^3$ ，则
+若 $\mathbf{u}, \mathbf{v} \in \mathbb{R}^3$ ，且 $\mathbf{u}, \mathbf{v} \ne \mathbf{0}, \; \mathbf{u} \ne c \mathbf{v}$ ，则
 
-* $\mathrm{Span} \{\mathbf{v} \}$ 是空间中的点或直线
-* $\mathrm{Span} \{\mathbf{u}, \mathbf{v} \}$ 是空间中的点、直线或平面
+* $\mathrm{Span} \{\mathbf{v} \}$ 是空间中的通过原点的直线
+* $\mathrm{Span} \{\mathbf{u}, \mathbf{v} \}$ 是空间中通过原点的平面
 
 ## 1.4 矩阵方程
 
-### 矩阵-向量积 $\mathbf{A} \mathbf{x}$
+### 矩阵-向量积
 
 *定义*
 
@@ -265,7 +271,7 @@ $$
 * $\mathbf{A} (\mathbf{u} + \mathbf{v}) = \mathbf{A} \mathbf{u} + \mathbf{A} \mathbf{v}$
 * $\mathbf{A} (c \mathbf{u}) = c (\mathbf{A} \mathbf{u})$
 
-### 矩阵方程 $\mathbf{A} \mathbf{x} = \mathbf{b}$
+### 矩阵方程
 
 *定理3*
 
@@ -289,10 +295,10 @@ $$\begin{bmatrix*}
 
 若 $\mathbf{A}$ 是 $m \times n$ 矩阵，则下列命题等价
 
-1. 对 $\mathbb{R}^m$ 中的每个 $\mathbb{b}$ ，方程 $\mathbf{A} \mathbf{x} = \mathbf{b}$ 都有解
-2.  $\mathbb{R}^m$ 中的每个 $\mathbb{b}$ 都是 $\mathbf{A}$ 的列的一个线性组合
+1. 对 $\mathbb{R}^m$ 中的每个 $\mathbf{b}$ ，方程 $\mathbf{A} \mathbf{x} = \mathbf{b}$ 都有解
+2.  $\mathbb{R}^m$ 中的每个 $\mathbf{b}$ 都是 $\mathbf{A}$ 的列的一个线性组合
 3.  $\mathbf{A}$ 的各列生成 $\mathbb{R}^m$
-4.  $\mathbf{A}$ 的每一行都有一个主元
+4.  $\mathbf{A}$ 的每一行都有一个主元位置
 
 ## 1.5 线性方程组的解集
 
@@ -315,7 +321,7 @@ $$\begin{bmatrix*}[r]
 $$\begin{cases}
 x_1 = 5 x_3 + 1 \\
 x_2 = -x_3 + 4\\
-x_3 \; \text{是自由变量}
+x_3 = x_3 \quad (x_3\text{是自由变量})
 \end{cases}$$
 
 解集的*参数向量表示*为
@@ -374,19 +380,19 @@ $$x_1 \mathbf{v}_1 + x_2 \mathbf{v}_2 + \dots + x_p \mathbf{v}_p = \mathbf{0}$$
 
 *定理 8*
 
-若一组向量的向量个数超过向量的维度，则这组向量必线性相关。
+若一组向量的向量个数超过每个向量的元素个数，则这组向量必线性相关。
 
 *定理 9*
 
 若一组向量包含零向量，则它们线性相关。
 
-实际上，若一组向量线性相关，则向这组向量中加入一个新的向量所形成的新的向量集合也必线性相关；同理，一个线性无关的向量集合，它的任意非空子集必是线性无关的。
+> 实际上，若一组向量线性相关，则向这组向量中加入一个新的向量所形成的新的向量集合也必线性相关；同理，一个线性无关的向量集合，它的任意非空子集必是线性无关的。
 
 ## 1.8 线性变换
 
 ### 有关变换的基本概念
 
-由 $\mathbb{R}^n$ 到 $\mathbb{R}^m$ 的一个*变换*（或称*函数*、*映射*） $T$ 是一个规则，它把 $\mathbb{R}^n$ 中的每个向量 $\mathbf{x}$ 对应到 $\mathbb{R}^m$ 中的一个向量 $T(\mathbf{x})$ 。 $\mathbb{R}^n$ 称为 $T$ 的*定义域*， $\mathbb{R}^m$ 称为 $T$ 的*上域*， $T(\mathbf{x})$ 的集合称为 $T$ 的*值域*。
+由 $\mathbb{R}^n$ 到 $\mathbb{R}^m$ 的一个*变换*（或称*函数*、*映射*） $T$ 是一个规则，它把 $\mathbb{R}^n$ 中的每个向量 $\mathbf{x}$ 对应到 $\mathbb{R}^m$ 中的一个向量 $T(\mathbf{x})$ 。 $\mathbb{R}^n$ 称为 $T$ 的*定义域*， $\mathbb{R}^m$ 称为 $T$ 的*上域*，所有 $T(\mathbf{x})$ 的集合称为 $T$ 的*值域*。
 
 以上变换可记作
 
@@ -409,20 +415,24 @@ $T$ 的值域为 $\mathbf{A}$ 的列的所有线性组合的集合。
 1. 对 $T$ 定义域中的一切 $\mathbf{u}, \mathbf{v}$ ，有 $T(\mathbf{u} + \mathbf{v}) = T(\mathbf{u}) + T(\mathbf{v})$
 2. 对 $T$ 定义域中的一切 $\mathbf{u}$ 和数 $c$ ，有 $T(c \mathbf{u}) = c T(\mathbf{u})$
 
-*矩阵变换都是线性变换。*
+矩阵变换都是线性变换。
+
+> 线性变换“保持”向量的的加法运算与标量乘法运算。
 
 若 $T$ 是线性变换，则
 
 1. $T(\mathbf{0}) = \mathbf{0}$
 2. $T(c \mathbf{u} + d \mathbf{v}) = c T(\mathbf{u}) + d T(\mathbf{v})$ ，其中 $\mathbf{u}$ 和 $\mathbf{v}$ 是 $T$ 定义域中的向量， $c$ 和 $d$ 是数
 
-$T(c \mathbf{u} + d \mathbf{v}) = c T(\mathbf{u}) + d T(\mathbf{v})$ 又称为*叠加原理*，可以推广为
+若一个变换满足 $T(c \mathbf{u} + d \mathbf{v}) = c T(\mathbf{u}) + d T(\mathbf{v})$ 则它是线性变换。它可以推广为
 
 $$T(c_1 \mathbf{v}_1 + c_2 \mathbf{v}_2 + \dots + c_p \mathbf{v}_p) = c_1 T(\mathbf{v}_1) + c_2 T(\mathbf{v}_2) + \dots + c_p T(\mathbf{v}_p)$$
 
+此即*叠加原理*。
+
 ## 1.9 线性变换的矩阵
 
-### 标准矩阵
+### 线性变换的标准矩阵
 
 *定理 10*
 
@@ -440,21 +450,23 @@ $$\mathbf{A} = [T(\mathbf{e}_1) \; T(\mathbf{e}_2) \; \dotsb \; T(\mathbf{e}_n)]
 
 在 $\mathbb{R}^2$ 中，通过线性变换可以实现图像的对称、缩放、剪切和投影等几何变换。
 
-### 映射的存在性与唯一性
+### 原像的存在性与唯一性
 
 *满射*
 
-映射 $T: \mathbb{R}^n \to \mathbb{R}^m$ 称为*到 $\mathbb{R}^m$ 上的映射*（也成为*满射*），若 $\mathbb{R}^m$ 中的每个元素在 $\mathbb{R}^n$ 中都有（至少一个）原像。
+映射 $T: \mathbb{R}^n \to \mathbb{R}^m$ 称为*到 $\mathbb{R}^m$ 上的映射*（又称*满射*），若 $\mathbb{R}^m$ 中的每个元素在 $\mathbb{R}^n$ 中都有（至少一个）原像。
+
+> 设 $T: \mathbb{R}^n \to \mathbb{R}^m$ 是线性变换， $\mathbf{A}$ 是 $T$ 的标准矩阵，则 $T$ 是满射当且仅当 $\mathbf{A}$ 的每一行都有一个主元位置。这可以通过 [定理 4](#矩阵方程) 直接得出。
 
 *单射*
 
-映射 $T: \mathbb{R}^n \to \mathbb{R}^m$ 称为*单射*，若 $\mathbb{R}^m$ 中的每个元素在 $\mathbb{R}^n$ 中都有最多有一个原像（也可以没有原像）。
+映射 $T: \mathbb{R}^n \to \mathbb{R}^m$ 称为*一对一映射*（又称*单射*），若 $\mathbb{R}^m$ 中的每个元素在 $\mathbb{R}^n$ 中最多有一个原像（或没有原像）。
 
 *定理 11*
 
 设 $T: \mathbb{R}^n \to \mathbb{R}^m$ 是线性变换， $\mathbf{A}$ 是 $T$ 的标准矩阵，则 $T$ 是单射当且仅当方程 $\mathbf{A} \mathbf{x} = \mathbf{0}$ 仅有平凡解。
 
-*联系 [定理 6](#非齐次线性方程组) ： $\mathbf{A} \mathbf{x} = \mathbf{0}$ 与 $\mathbf{A} \mathbf{x} = \mathbf{b}$ 的解集的关系，可证明定理 11。*
+> 联系 [定理 6](#非齐次线性方程组) ： $\mathbf{A} \mathbf{x} = \mathbf{0}$ 与 $\mathbf{A} \mathbf{x} = \mathbf{b}$ 的解集之间的关系： $\mathbf{w} = \mathbf{p} + \mathbf{v}$ ，可证明定理 11。
 
 *定理 12*
 
