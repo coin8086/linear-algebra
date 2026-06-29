@@ -243,7 +243,7 @@ $$\mathrm{Span} \{\mathbf{v}_1, \mathbf{v}_2, \dots, \mathbf{v}_p \} = \{ c_1 \m
 * $\mathrm{Span} \{\mathbf{v} \}$ 是空间中的通过原点的直线
 * $\mathrm{Span} \{\mathbf{u}, \mathbf{v} \}$ 是空间中通过原点的平面
 
-## 1.4 矩阵方程
+## 1.4 矩阵方程 $\mathbf{A} \mathbf{x} = \mathbf{b}$
 
 ### 矩阵-向量积
 
@@ -478,3 +478,40 @@ $$\mathbf{A} = [T(\mathbf{e}_1) \; T(\mathbf{e}_2) \; \dotsb \; T(\mathbf{e}_n)]
 ## 1.10 商业、科学和工程中的线性模型
 
 （略）
+
+## 小结
+
+本章以线性方程组为核心，介绍了线性方程组的解法和线性方程组在不同观点（增广矩阵、向量和矩阵方程）下的表示，以及线性变换。
+
+线性方程组在不同观点下的表示如下
+
+![线性方程组](./assets/01-relations-a.svg)
+
+虽然表示方法不同，但核心的问题都在于解的存在性与唯一性，如下
+
+```{=latex}
+\begin{minipage}{\textwidth}
+\renewcommand{\arraystretch}{2.0}
+```
+
+|      | 解的存在性    | 解的唯一性
+| :--: | :--------: | :--------:
+| 增广矩阵 | 没有形如 $[0 \dots 0 \; b] \; (b \ne 0)$ 的行  | 没有自由变量
+| 向量方程 | 看等价的增广矩阵 | 各向量线性无关
+| 矩阵方程 | 看等价的增广矩阵 | 矩阵各列线性无关
+
+```{=latex}
+\end{minipage}
+```
+
+求解线性方程组的相关概念和方法如下
+
+![解线性方程组](./assets/01-relations-b.svg)
+
+齐次和非齐次线性方程组的解集之间有如下关系
+
+![解集之间的关系](./assets/01-relations-c.svg)
+
+线性变换的相关概念如下
+
+![线性变换](./assets/01-relations-d.svg)
