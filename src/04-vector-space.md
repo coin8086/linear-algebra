@@ -30,7 +30,7 @@
 * $c \mathbf{0} = \mathbf{0}$
 * $- \mathbf{u} = (-1) \mathbf{u}$
 
-> 向量空间不限于 $\mathbb{R}^n$ 。一个例子是：定义在闭区间 $[a, b]$ 上的所有实值函数组成了一个向量空间 $V$ 。若 $f, g \in V$ 则 $f + g \in V, \; cf \in V \; (c \text{ 为常数})$ 。 $V$ 的零向量是恒等于 $0$ 的函数。 $f$ 的复向量为 $(-1)f$ 。
+> 向量空间不限于 $\mathbb{R}^n$ 。一个例子是：定义在闭区间 $[a, b]$ 上的所有实值函数组成了一个向量空间 $V$ 。若 $f, g \in V$ 则 $f + g \in V, \; cf \in V \; (c \text{ 为常数})$ 。 $V$ 的零向量是恒等于 $0$ 的函数。 $f$ 的负向量为 $(-1)f$ 。
 
 ### 子空间的定义
 
@@ -50,7 +50,7 @@
 
 *线性组合*
 
-与[1.3 线性组合](01-linear-equations.md#线性组合)的概念相同，线性组合表示一些向量的任意标量乘积之和。向量 $\mathbf{v}_1, \dots, \mathbf{v}_n$ 的线性组合可表示为 $\mathrm{Span} \{ \mathbf{v}_1, \dots, \mathbf{v}_n \}$
+与[1.3节“线性组合”](01-linear-equations.md#线性组合)中的概念相似，这里的线性组合表示一些向量的任意标量乘积之和。向量 $\mathbf{v}_1, \dots, \mathbf{v}_n$ 的线性组合可表示为 $\mathrm{Span} \{ \mathbf{v}_1, \dots, \mathbf{v}_n \}$
 
 *定理 1*
 
@@ -89,7 +89,7 @@ $m \times n$ 矩阵 $A$ 的列空间是 $\mathbb{R}^m$ 的一个子空间。
 
 线性变换 $T$ 的*核*（或*零空间*）是 $V$ 中所有满足 $T(\mathbf{x}) = \mathbf{0}$ 的向量 $\mathbf{x}$ 的集合， $T$ 的*值域*是 $W$ 中所有具有形式 $T(\mathbf{x})$ 的向量的集合。若 $T$ 是一个矩阵变换 $T(\mathbf{x}) = A \mathbf{x}$ ，则 $T$ 的核与值域就是矩阵 $A$ 的零空间与列空间。
 
-> 这里对线性变换的定义推广了[1.8 线性变换](./01-linear-equations.md#18-线性变换)对线性变换的定义：映射的像和原像的空间都不限于 $\mathbb{R}^m$ 或 $\mathbb{R}^n$ 。一个例子是：设 $T: C[a, b] \to C[a, b]$ ，又设 $T(f) = F$ ，其中 $F$ 是 $f$ 的一个原函数，且 $F(a) = 0$ 。这里 $T$ 是一个线性变换，且 $\displaystyle F(x) = \int_a^x f(x) \mathrm{d}x$ 。
+> 这里对线性变换的定义推广了[1.8节“线性变换”](./01-linear-equations.md#18-线性变换)中的定义：映射的像和原像的空间都不限于 $\mathbb{R}^m$ 或 $\mathbb{R}^n$ 。一个例子是：设 $T: C[a, b] \to C[a, b]$ ，又设 $T(f) = F$ ，其中 $F$ 是 $f$ 的一个原函数，且 $F(a) = 0$ 。这里 $T$ 是一个线性变换，且 $\displaystyle F(x) = \int_a^x f(x) \mathrm{d}x$ 。
 
 ## 4.3 线性无关和基
 
