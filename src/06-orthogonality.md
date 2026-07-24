@@ -314,19 +314,19 @@ $$\hat{\mathbf{x}} = R^{-1} Q^T \mathbf{b}$$
 
 ## 6.6 线性模型中的应用
 
-在统计学中，将 $A \mathbf{x} = \mathbf{b}$ 写成 $X \mathbf{\beta} = \mathbf{y}$ ，并称 $X$ 为*设计矩阵*， $\mathbf{\beta}$ 为*参数向量*， $\mathbf{y}$ 为*观测向量*。
+在统计学中，将 $A \mathbf{x} = \mathbf{b}$ 写成 $X \symbfit{\beta} = \mathbf{y}$ ，并称 $X$ 为*设计矩阵*， $\symbfit{\beta}$ 为*参数向量*， $\mathbf{y}$ 为*观测向量*。
 
 ### 最小二乘直线
 
 假定观测数据 $(x_1, y_1), \dots, (x_n, y_n)$ 的变量 $x$ 和 $y$ 之间具有某种线性关系，则*最小二乘直线* $y = \beta_0 + \beta_1 x$ 是余差平方和 $\displaystyle \sum^n_{i = 1} (y_i - (\beta_0 + \beta_1 x_i))^2$ 最小的直线，也称为 $\mathbf{y}$ 对 $\mathbf{x}$ 的*回归直线*。直线的系数 $\beta_0, \ \beta_1$ 称为（线性）*回归系数*。
 
-确定最小二乘直线的回归系数即求方程 $X \mathbf{\beta} = \mathbf{y}$ 的最小二乘解，其中
+确定最小二乘直线的回归系数即求方程 $X \symbfit{\beta} = \mathbf{y}$ 的最小二乘解，其中
 
 $$X = \begin{bmatrix*}
 1 & x_1 \\
 \vdots & \vdots \\
 1 & x_n \\
-\end{bmatrix*}, \; \mathbf{\beta} = \begin{bmatrix*}
+\end{bmatrix*}, \; \symbfit{\beta} = \begin{bmatrix*}
 \beta_0 \\
 \beta_1 \\
 \end{bmatrix*}, \; \mathbf{y} = \begin{bmatrix*}
@@ -339,11 +339,11 @@ y_n \\
 
 任何具有
 
-$$\mathbf{y} = X \mathbf{\beta} + \mathbf{\varepsilon}$$
+$$\mathbf{y} = X \symbfit{\beta} + \symbfit{\varepsilon}$$
 
-这种形式方程的模型称为*线性模型*，其中 $\mathbf{y}$ 为*观测向量* ，$X$ 为*设计矩阵*， $\mathbf{\beta}$ 为*参数向量*， $\mathbf{\varepsilon}$ 为*余差向量*。
+这种形式方程的模型称为*线性模型*，其中 $\mathbf{y}$ 为*观测向量* ，$X$ 为*设计矩阵*， $\symbfit{\beta}$ 为*参数向量*， $\symbfit{\varepsilon}$ 为*余差向量*。
 
-一旦 $\mathbf{y}$ 和 $X$ 被确定，使 $\mathbf{\varepsilon}$ 长度最小化即相当于求 $\mathbf{y} = X \mathbf{\beta}$
+一旦 $\mathbf{y}$ 和 $X$ 被确定，使 $\symbfit{\varepsilon}$ 长度最小化即相当于求 $\mathbf{y} = X \symbfit{\beta}$
  的最小二乘解。
 
 ### 曲线的最小二乘拟合
@@ -481,17 +481,17 @@ w_n y_n
 
 $$\mathrm{SS}(E) = \| W \mathbf{y} - W \hat{\mathbf{y}} \|^2$$
 
-又 $\hat{\mathbf{y}} = X \mathbf{\beta}$ ，则
+又 $\hat{\mathbf{y}} = X \symbfit{\beta}$ ，则
 
-$$\mathrm{SS}(E) = \| W \mathbf{y} - W \hat{\mathbf{y}} \|^2 = \| W \mathbf{y} - W X \mathbf{\beta} \|^2$$
+$$\mathrm{SS}(E) = \| W \mathbf{y} - W \hat{\mathbf{y}} \|^2 = \| W \mathbf{y} - W X \symbfit{\beta} \|^2$$
 
-上式表明 $W X \mathbf{\beta}$ 对 $W \mathbf{y}$ 的最佳逼近即方程
+上式表明 $W X \symbfit{\beta}$ 对 $W \mathbf{y}$ 的最佳逼近即方程
 
-$$W X \mathbf{\beta} = W \mathbf{y}$$
+$$W X \symbfit{\beta} = W \mathbf{y}$$
 
 的最小二乘解，其法方程是
 
-$$(W X)^T W X \mathbf{\beta} = (W X)^T W \mathbf{y}$$
+$$(W X)^T W X \symbfit{\beta} = (W X)^T W \mathbf{y}$$
 
 ### 数据趋势分析
 

@@ -3,6 +3,8 @@ papersize: a4
 geometry: margin=2cm
 header-includes:
   - \usepackage{mathtools}
+
+  # For page headers
   - \usepackage{fancyhdr}
   - \pagestyle{fancy}
   - \renewcommand{\headrulewidth}{0pt}
