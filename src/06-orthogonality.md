@@ -6,7 +6,7 @@
 
 *向量内积*
 
-若 $\mathbf{u}$ 、 $\mathbf{v}$ 是 $\mathbb{R}^n$ 中的向量，将其视作 $n \times 1$ 矩阵，则数 $\mathbf{u}^T \mathbf{v}$ 称为 $\mathbf{u}$ 与 $\mathbf{v}$ 的*内积*，记作 $\mathbf{u} \cdot \mathbf{v}$ 。
+设 $\mathbf{u}$ 、 $\mathbf{v}$ 是 $\mathbb{R}^n$ 中的向量，将其视作 $n \times 1$ 矩阵，则数 $\mathbf{u}^T \mathbf{v}$ 称为 $\mathbf{u}$ 与 $\mathbf{v}$ 的*内积*，记作 $\mathbf{u} \cdot \mathbf{v}$ 。
 
 *定理 1*
 
@@ -17,9 +17,8 @@
 3. $(c \mathbf{u}) \cdot \mathbf{v} = c (\mathbf{u} \cdot \mathbf{v})$
 4. $\mathbf{u} \cdot \mathbf{u} \ge 0$ 且 $\mathbf{u} \cdot \mathbf{u} = 0 \iff \mathbf{u} = \mathbf{0}$
 
-由以上第2、3点可得
-
-$$(c_1 \mathbf{u}_1 + \dots c_p \mathbf{u}_p) \cdot \mathbf{w} = c_1 (\mathbf{u}_1 \cdot \mathbf{w}) + \dots + c_p (\mathbf{u}_p \cdot \mathbf{w})$$
+> 以上第2、3点可合并为
+> $$(c_1 \mathbf{u}_1 + \dots c_p \mathbf{u}_p) \cdot \mathbf{w} = c_1 (\mathbf{u}_1 \cdot \mathbf{w}) + \dots + c_p (\mathbf{u}_p \cdot \mathbf{w})$$
 
 ### 向量的长度
 
@@ -35,9 +34,15 @@ $\mathbb{R}^n$ 中向量 $\mathbf{u}$ 和 $\mathbf{v}$ 之间的距离记作 $\m
 
 $$\mathrm{dist}(\mathbf{u}, \mathbf{v}) = \| \mathbf{u} - \mathbf{v} \|$$
 
+> $\mathrm{dist}(\mathbf{u}, \mathbf{v})$ 可进一步展开
+> $$\mathrm{dist}(\mathbf{u}, \mathbf{v})^2 = \| \mathbf{u} - \mathbf{v} \|^2 = (\mathbf{u} - \mathbf{v}) \cdot (\mathbf{u} - \mathbf{v}) = \| \mathbf{u} \|^2 + \| \mathbf{v} \|^2 - 2 \mathbf{u} \cdot \mathbf{v}$$
+> 若 $\mathbf{u}, \mathbf{v} \in \mathbb{R}^2$ ，此即余弦定理。
+
 ### 正交向量
 
 若 $\mathbf{u} \cdot \mathbf{v} = 0$ ，则称向量 $\mathbf{u}$ 和 $\mathbf{v}$ 是（相互）*正交的*。
+
+> 在 $\mathbb{R}^n$ 中，两个向量正交的概念由 $\mathbb{R}^3$ 中两条直线垂直的概念推广而来。
 
 *定理 2（毕达哥拉斯/勾股定理）*
 
@@ -59,20 +64,8 @@ $W^{\perp}$ 的一些性质：
 
 若 $A$ 是 $m \times n$ 矩阵，则
 
-* $(\mathrm{Row} \ A)^{\perp} = \mathrm{Nul} \ A$
-* $(\mathrm{Col} \ A)^{\perp} = \mathrm{Nul} \ A^T$
-
-证明：设 $A =
-\begin{bmatrix*}
-r_1 \\
-\vdots \\
-r_m
-\end{bmatrix*}$ ，则 $A \mathbf{x} =
-\begin{bmatrix*}
-r_1 \mathbf{x} \\
-\vdots \\
-r_m \mathbf{x}
-\end{bmatrix*}$ ，
+* $$(\mathrm{Row} \ A)^{\perp} = \mathrm{Nul} \ A$$
+* $$(\mathrm{Col} \ A)^{\perp} = \mathrm{Nul} \ A^T$$
 
 $A \mathbf{x} = \mathbf{0} \implies r_i \mathbf{x} = 0, \quad i = 1, 2, \dots, m$
 
@@ -83,6 +76,8 @@ $A \mathbf{x} = \mathbf{0} \implies r_i \mathbf{x} = 0, \quad i = 1, 2, \dots, m
 若 $\mathbf{u}$ 、 $\mathbf{v}$ 是 $\mathbb{R}^2$ 或 $\mathbb{R}^3$ 中的向量，它们的夹角为 $\theta$ ，则
 
 $$\mathbf{u} \cdot \mathbf{v} = \|\mathbf{u}\| \|\mathbf{v}\| \cos \theta$$
+
+其中 $\cos \theta$ 称为 $\mathbf{u}$ 、 $\mathbf{v}$ 的*相关系数*。
 
 ## 6.2 正交集
 
@@ -104,7 +99,7 @@ $$\mathbf{u} \cdot \mathbf{v} = \|\mathbf{u}\| \|\mathbf{v}\| \cos \theta$$
 
 设 $\{ \mathbf{u}_1, \dots, \mathbf{u}_p \}$ 是 $\mathbb{R}^n$ 子空间 $W$ 的正交基，则对 $W$ 中的向量 $\mathbf{y}$ ，线性组合 $\mathbf{y} = c_1 \mathbf{u}_1 + \dots + c_p \mathbf{u}_p$ 中的权 $\displaystyle c_i = \frac{\mathbf{y} \cdot \mathbf{u}_i}{\mathbf{u}_i \cdot \mathbf{u}_i}, \; i = 1, \dots, p$ 。
 
-该定理说明正交基比非正交基优越：其线性组合的权较易计算。
+该定理说明正交基比非正交基优越：其线性组合的权较易计算，不必解方程 $A \mathbf{x} = \mathbf{y}$ 。
 
 ### 正交投影
 
@@ -118,7 +113,7 @@ $$\hat{\mathbf{y}} = \mathrm{proj}_L \ \mathbf{y} = \frac{\mathbf{y} \cdot \math
 
 *单位正交集*
 
-若正交集 $\{ \mathbf{u}_1, \dots, \mathbf{u}_p \}$ 的向量都是单位向量，则称该集合为*单位正交集*。
+若正交集 $\{ \mathbf{u}_1, \dots, \mathbf{u}_p \}$ 中的向量都是单位向量，则称该集合为*单位正交集*。
 
 *定理 6*
 
@@ -132,11 +127,13 @@ $$\hat{\mathbf{y}} = \mathrm{proj}_L \ \mathbf{y} = \frac{\mathbf{y} \cdot \math
 2. $(U \mathbf{x}) \cdot (U \mathbf{y}) = \mathbf{x} \cdot \mathbf{y}$
 3. $(U \mathbf{x}) \cdot (U \mathbf{y}) = 0$ 的充要条件是 $\mathbf{x} \cdot \mathbf{y} = 0$
 
-该定理说明，线性映射 $\mathbf{x} \mapsto U \mathbf{x}$ 保持长度和正交性。
+> 该定理说明，线性映射 $\mathbf{x} \mapsto U \mathbf{x}$ 保持长度和正交性，若 $U$ 的列单位正交。
 
 *正交矩阵*
 
 一个*正交矩阵*是一个可逆方阵 $U$ ，且 $U^{-1} = U^T$ 。显然，这样的矩阵具有单位正交列。
+
+> 正交矩阵的行向量也是正交的。
 
 ## 6.3 正交投影
 
@@ -164,7 +161,7 @@ $$\| \mathbf{y} - \hat{\mathbf{y}} \| < \| \mathbf{y} - \mathbf{v} \|$$
 
 对任意 $\mathbf{v} \in W$ 且 $\mathbf{v} \ne \hat{\mathbf{y}}$ 成立。
 
-*定理 10（在单位正交基上的投影）*
+*定理 10*
 
 若 $\{ \mathbf{u}_1, \dots, \mathbf{u}_p \}$ 是 $\mathbb{R}^n$ 中子空间 $W$ 的单位正交基， $\mathbf{y} \in \mathbb{R}^n$ ，则
 
@@ -173,6 +170,8 @@ $$\mathrm{proj}_W \ \mathbf{y} = (\mathbf{y} \cdot \mathbf{u}_1) \mathbf{u}_1 + 
 若 $U = [\mathbf{u}_1 \dots \mathbf{u}_p]$ ，则
 
 $$\mathrm{proj}_W \ \mathbf{y} = U U^T \mathbf{y}$$
+
+> 这表明 $\mathbf{y} \mapsto \mathrm{proj}_W \mathbf{y}$ 是一个线性变换，该变换的矩阵是 $U U^T$ 。
 
 ## 6.4 格拉姆-施密特方法
 
@@ -195,14 +194,6 @@ $$\mathrm{Span} \{ \mathbf{v}_1, \dots, \mathbf{v}_k \} = \mathrm{Span} \{ \math
 
 若单位化 $\mathbf{v}_k$ ，则得到一个*标准正交基*。
 
-证明/思路：
-
-采用“分治”的思想，把 $W$ 的基 $\{ \mathbf{x}_1, \dots, \mathbf{x}_p \}$ 分为两部分 $\{ \mathbf{x}_1, \dots, \mathbf{x}_{p - 1} \}$ 与 $\mathbf{x}_p$ ，并记 $W_{p - 1} = \mathrm{Span} \{ \mathbf{x}_1, \dots, \mathbf{x}_{p - 1} \}$
-
-设 $\mathbf{v}_p = \mathbf{x}_p - \mathrm{proj}_{W_{p - 1}} \mathbf{x}_p$ ，则 $\mathbf{v}_p \in W^{\perp}_{p - 1}$ ，且 $\{ \mathbf{x}_1, \dots, \mathbf{x}_{p - 1}, \mathbf{v}_p \}$ 线性无关。由基定理，它与 $\{ \mathbf{x}_1, \dots, \mathbf{x}_{p - 1}, \mathbf{x}_p \}$ 都是子空间 $W_p$ （即 $W$ ）的基。
-
-对 $\{ \mathbf{x}_1, \dots, \mathbf{x}_{p - 1} \}$ 重复以上方法，直到 $W_1 = \mathrm{Span} \{ \mathbf{x}_1 \}$ ，对它有 $\mathbf{v}_1 = \mathbf{x}_1$
-
 ### 矩阵的 QR 分解
 
 若矩阵 $A$ 的列线性无关，则应用格拉姆-施密特方法于 $A$ 的列向量等同于矩阵 $A$ 的 QR 分解。
@@ -211,39 +202,15 @@ $$\mathrm{Span} \{ \mathbf{v}_1, \dots, \mathbf{v}_k \} = \mathrm{Span} \{ \math
 
 若 $m \times n$ 矩阵 $A$ 的列线性无关，则 $A$ 可分解为 $A = Q R$ ，其中 $Q$ 是一个 $m \times n$ 矩阵，其列构成 $\mathrm{Col} \ A$ 的一个标准正交基， $R$ 是一个 $n \times n$ 上三角可逆矩阵且其对角线上的元素都是正数。
 
-证明/思路：
+> 此外，设 $A = QR$ ，其中 $Q$ 、 $R$ 分别是 $m \times n$ 、 $n \times n$ 的矩阵，则
+>
+> 1. 若 $A$ 的列线性无关则 $R$ 可逆
+> 2. 若 $R$ 可逆则 $\mathrm{Col} \ A = \mathrm{Col} \ Q$
 
-设 $A = [\mathbf{x}_1 \dots \mathbf{x}_n]$ ，由格拉姆-施密特方法把 $A$ 的列向量正交化，有
+*矩阵 $A$ 的 QR 分解步骤*
 
-$$\begin{align*}
-  \mathbf{x}_1 &= \mathbf{v}_1 \\
-  \mathbf{x}_2 &= \frac{\mathbf{x}_2 \cdot \mathbf{v}_1}{\mathbf{v}_1 \cdot \mathbf{v}_1} \mathbf{v}_1 + \mathbf{v}_2 \\
-  \vdots \\
-  \mathbf{x}_n &= \frac{\mathbf{x}_n \cdot \mathbf{v}_1}{\mathbf{v}_1 \cdot \mathbf{v}_1} \mathbf{v}_1 + \frac{\mathbf{x}_n \cdot \mathbf{v}_2}{\mathbf{v}_2 \cdot \mathbf{v}_2} \mathbf{v}_2 + \dots + \frac{\mathbf{x}_n \cdot \mathbf{v}_{n - 1}}{\mathbf{v}_{n - 1} \cdot \mathbf{v}_{n - 1}} \mathbf{v}_{n - 1} + \mathbf{v}_n
-\end{align*}$$
-
-再把 $\mathbf{v}_1, \dots \mathbf{v}_n$ 单位化为 $\mathbf{u}_1, \dots \mathbf{u}_n$
-
-设 $\mathbf{v}_i = \| \mathbf{v}_i \| \mathbf{u}_i$ ，则 $\displaystyle \frac{\mathbf{x}_k \cdot \mathbf{v}_i}{\mathbf{v}_i \cdot \mathbf{v}_i} \mathbf{v}_i = (\mathbf{x}_k \cdot \mathbf{u}_i) \mathbf{u}_i$ ，有
-
-$$\begin{align*}
-  \mathbf{x}_1 &= \| \mathbf{v}_1 \| \mathbf{u}_1 \\
-  \mathbf{x}_2 &= (\mathbf{x}_2 \cdot \mathbf{u}_1) \mathbf{u}_1 + \| \mathbf{v}_2 \| \mathbf{u}_2 \\
-  \vdots \\
-  \mathbf{x}_n &= (\mathbf{x}_n \cdot \mathbf{u}_1) \mathbf{u}_1 + (\mathbf{x}_n \cdot \mathbf{u}_2) \mathbf{u}_2 + \dots + (\mathbf{x}_n \cdot \mathbf{u}_{n - 1}) \mathbf{u}_{n - 1} + \| \mathbf{v}_n \| \mathbf{u}_n
-\end{align*}$$
-
-即
-
-$$[\mathbf{x}_1 \dots \mathbf{x}_n]
-= [\mathbf{u}_1 \dots \mathbf{u}_n]
-\begin{bmatrix*}
-\| \mathbf{v}_1 \| & \mathbf{x}_2 \cdot \mathbf{u}_1 & \dots & \dots & \mathbf{x}_n \cdot \mathbf{u}_1 \\
-0 & \| \mathbf{v}_2 \| & & & \mathbf{x}_n \cdot \mathbf{u}_2 \\
-\vdots & 0 & \ddots & & \vdots \\
-\vdots & \vdots & & \ddots & \mathbf{x}_n \cdot \mathbf{u}_{n - 1} \\
-0 & 0 & & & \| \mathbf{v}_n \| \\
-\end{bmatrix*}$$
+1. 构造 $A$ 的标准正交基 $Q$
+2. 由 $A = QR$ 得到 $R = Q^TA$ （利用 $Q^T Q = I$ ）
 
 ## 6.5 最小二乘问题
 
@@ -257,24 +224,11 @@ $$\| \mathbf{b} - A \hat{\mathbf{x}}\| \le \| \mathbf{b} - A \mathbf{x} \|$$
 
 ### 一般最小二乘问题的解
 
+$\hat{\mathbf{x}}$ 是方程 $A \mathbf{x} = \mathbf{b}$ 的最小二乘解的充要条件是 $A \hat{\mathbf{x}} = \hat{\mathbf{b}}$ ，其中 $\hat{\mathbf{b}} = \mathrm{proj}_{\mathrm{Col} \ A} \mathbf{b}$ 。
+
 *定理 13*
 
 方程 $A \mathbf{x} = \mathbf{b}$ 的最小二乘解集和*法方程* $A^T A \mathbf{x} = A^T \mathbf{b}$ 的解集相同。
-
-证明/思路：
-
-$A^T A \mathbf{x} = A^T \mathbf{b} \iff A^T (A \mathbf{x} - \mathbf{b}) = \mathbf{0}$
-
-设 $A = [\mathbf{a}_1 \dots \mathbf{a}_n]$ ，则 $\begin{bmatrix*}
-\mathbf{a}_1^T \\
-\vdots \\
-\mathbf{a}_n^T \\
-\end{bmatrix*}
-(A \mathbf{x} - \mathbf{b}) = \mathbf{0}$ ，即
-
-$\mathbf{a}_i^T (A \mathbf{x} - \mathbf{b}) = 0 \iff \mathbf{a}_i \cdot (A \mathbf{x} - \mathbf{b}) = 0, \quad i = 1, \dots, n$
-
-即 $A \mathbf{x} - \mathbf{b}$ 正交于 $\mathrm{Col} \ A$ 生成集中的每一个向量，因此 $A \mathbf{x} - \mathbf{b}$ 正交于 $\mathrm{Col} \ A$ ，即 $A \mathbf{x}$ 是 $\mathbf{b}$ 在 $\mathrm{Col} \ A$ 的正交投影。
 
 *定理 14*
 
@@ -284,25 +238,17 @@ $\mathbf{a}_i^T (A \mathbf{x} - \mathbf{b}) = 0 \iff \mathbf{a}_i \cdot (A \math
 2. $A$ 的列线性无关
 3. 矩阵 $A^T A$ 可逆
 
-证明/思路：
-
-方程 $A \mathbf{x} = \mathbf{b}$ 有唯一的最小二乘解，即最小二乘法方程 $A^T A \mathbf{x} = A^T \mathbf{b}$ 有唯一解，由可逆矩阵性质可知法方程有唯一解等价于条件3。
-
-条件2等价于条件3需要一条引理：设 $A$ 是 $m \times n$ 矩阵，则 $\mathrm{Nul} \ A = \mathrm{Nul} \ A^T A$ ，即 $A \mathbf{x} = \mathbf{0} \iff A^T A \mathbf{x} = \mathbf{0}$
-
-由此，若方程 $A \mathbf{x} = \mathbf{0}$ 仅有平凡解，则方程 $A^T A \mathbf{x} = \mathbf{0}$ 亦仅有平凡解，即条件2等价于条件3。
-
 ### 特殊情形下最小二乘问题的解
 
-*当A 的列正交时*
+*当 A 的列正交时*
 
-对方程 $A \mathbf{x} = \mathbf{b}$ ，当 $A$ 的列正交时，正交分解
+对方程 $A \mathbf{x} = \mathbf{b}$ ，当 $A$ 的列 $\mathbf{a}_1, \dots, \mathbf{a}_n$ 正交时，正交分解
 
 $$\hat{\mathbf{b}} = \frac{\mathbf{b} \cdot \mathbf{a}_1}{\mathbf{a}_1 \cdot \mathbf{a}_1} \mathbf{a}_1 + \dots + \frac{\mathbf{b} \cdot \mathbf{a}_n}{\mathbf{a}_n \cdot \mathbf{a}_n} \mathbf{a}_n$$
 
-即得 $\hat{\mathbf{x}}$ 使 $A \hat{\mathbf{x}} = \hat{\mathbf{b}}$
+即得 $\hat{\mathbf{x}}$ 使 $A \hat{\mathbf{x}} = \hat{\mathbf{b}}$ 。
 
-*当A 的列线性无关时*
+*当 A 的列线性无关时*
 
 有时，最小二乘的法方程可能是病态的，即 $A^T A$ 的元素在计算中出现的误差可能导致 $\hat{\mathbf{x}}$ 出现较大的误差，此时通过 $A$ 的 QR 分解可以更可靠地求解 $\hat{\mathbf{x}}$
 
@@ -311,6 +257,8 @@ $$\hat{\mathbf{b}} = \frac{\mathbf{b} \cdot \mathbf{a}_1}{\mathbf{a}_1 \cdot \ma
 若 $m \times n$ 矩阵 $A$ 的列线性无关，设 $A = Q R$ 是定理 12 定义的 QR 分解，则对任意 $\mathbf{b} \in \mathbb{R}^m$ ，方程 $A \mathbf{x} = \mathbf{b}$ 有唯一的最小二乘解
 
 $$\hat{\mathbf{x}} = R^{-1} Q^T \mathbf{b}$$
+
+> 注意到 $R$ 是上三角矩阵，在实际计算中使用 $R \mathbf{x} = Q^T \mathbf{b}$ 解 $\mathbf{x}$ 更快。
 
 ## 6.6 线性模型中的应用
 
