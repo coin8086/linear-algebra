@@ -331,11 +331,11 @@ $$y = \beta_0 f_0(u, v) + \beta_1 f_1(u, v) + \dots + \beta_k f_k(u, v)$$
 3. $\langle c \mathbf{u}, \mathbf{v} \rangle = c \langle \mathbf{u}, \mathbf{v} \rangle$
 4. $\langle \mathbf{u}, \mathbf{u} \rangle \ge 0$ ，且 $\langle \mathbf{u}, \mathbf{u} \rangle = 0 \iff \mathbf{u} = \mathbf{0}$
 
-一个定义了内积函数的向量空间称为*内积空间*。
+定义了内积函数的向量空间称为*内积空间*。
 
-由以上公里可推出
-
-$$\langle \mathbf{u}, \mathbf{0} \rangle = 0$$
+> 由以上公里可推出
+>
+> $$\langle \mathbf{u}, \mathbf{0} \rangle = 0$$
 
 ### 长度、距离和正交性
 
@@ -361,13 +361,21 @@ $$\| \mathbf{v} \| = \sqrt{\langle \mathbf{v}, \mathbf{v} \rangle}$$
 
 ### 两个不等式
 
-由内积空间上的勾股定理可推出以下重要不等式
+由
+
+$$\| v \|^2 = \| \mathrm{proj}_w \mathbf{v} \|^2 + \| \mathbf{v} - \mathrm{proj}_w \mathbf{v} \|^2$$
+
+可推出以下重要不等式
 
 *定理 16（柯西-施瓦茨不等式）*
 
 对任意 $\mathbf{u}, \mathbf{v} \in V$ ，有
 
 $$| \langle \mathbf{u}, \mathbf{v} \rangle | \le \| \mathbf{u} \| \| \mathbf{v} \|$$
+
+> 即：两个向量的内积的绝对值不大于这两个向量的范数的乘积。
+
+由定理 16可推出以下定理
 
 *定理 17（三角不等式）*
 
@@ -377,7 +385,7 @@ $$\| \mathbf{u} + \mathbf{v} \| \le \| \mathbf{u} \| + \| \mathbf{v} \|$$
 
 ### $C[a, b]$ 上的内积
 
-$C[a, b]$ 是所有在区间 $[a, b]$ 上连续的函数构成的向量空间。它也是一个内积空间，如果定义如下内积
+$C[a, b]$ 是所有在区间 $[a, b]$ 上连续的函数构成的向量空间。它是一个内积空间，如果定义如下内积
 
 $$\langle f, g \rangle = \int_a^b f(t) g(t) \mathrm{d}t$$
 
@@ -385,25 +393,23 @@ $$\langle f, g \rangle = \int_a^b f(t) g(t) \mathrm{d}t$$
 
 ### 加权最小二乘法
 
-在[前述的最小二乘法](#最小二乘直线)下，误差平方和为
+方程 $A \mathbf{x} = \mathbf{y}$ 的最小二乘解集等于使 $\| A \mathbf{x} - \mathbf{y} \|$ 最小的 $\mathbf{x}$ 的集合。
+
+设 $\hat{\mathbf{y}} \in \mathrm{Col} \ A$ 。定义用 $\hat{\mathbf{y}}$ 逼近 $\mathbf{y}$ 的误差的平方和 $\mathrm{SS}(E)$ 为
 
 $$\mathrm{SS}(E) = \| \mathbf{y} - \hat{\mathbf{y}} \|^2 = (y_1 - \hat{y_1})^2 + \dots + (y_n - \hat{y_n})^2$$
 
 其中， $y_i$ 是观测值， $\hat{y}_i$ 是预测值。
 
-有时（比如观测值 $y_i$ 的可靠性不同），需要给以上每一项加上不同的权重，即
+那么一般地，当 $\hat{\mathbf{y}} = \mathrm{proj}_{\mathrm{Col \ A}} \mathbf{y}$ 时 $\mathrm{SS}(E)$ 最小。
+
+但有时（比如观测值 $y_i$ 的可靠性不同），需要给以上每一项 $(y_i - \hat{y_i})^2$ 加上不同的权重，重新定义 $\mathrm{SS}(E)$ 为
 
 $$\mathrm{SS}(E) = w_1^2(y_1 - \hat{y_1})^2 + \dots + w_n^2(y_n - \hat{y_n})^2$$
 
-此时，可以定义内积为
+那么 $\mathbf{x}$ 该如何取值，使得新的 $\mathrm{SS}(E)$ 最小？此即加权最小二乘问题。
 
-$$\langle x, y \rangle = w_1^2 x_1 y_1 + \dots + w_n^2 x_n y_n$$
-
-注意：在 $\mathbb{R}^n$ 上解决一般最小二乘问题的法方程不适用于“自定义”内积。
-
-也可以把这种加权最小二乘问题转化为一般最小二乘问题来解决，如下：
-
-设 $W$ 是对角线上的元素是 $w_1, \dots, w_n$ 的对角矩阵，有
+设 $W$ 是对角线上的元素是 $w_1, \dots, w_n$ 的对角矩阵，则
 
 $$W \mathbf{y} =
 \begin{bmatrix*}
@@ -425,21 +431,41 @@ w_2 y_2 \\
 w_n y_n
 \end{bmatrix*}$$
 
-对 $W \hat{\mathbf{y}}$ 有类似表达式，这样
+同理，
+
+$$W \hat{\mathbf{y}} =
+\begin{bmatrix*}
+w_1 \hat{y}_1 \\
+w_2 \hat{y}_2 \\
+\vdots \\
+w_n \hat{y}_n
+\end{bmatrix*}$$
+
+因此
 
 $$\mathrm{SS}(E) = \| W \mathbf{y} - W \hat{\mathbf{y}} \|^2$$
 
-又 $\hat{\mathbf{y}} = X \symbfit{\beta}$ ，则
+又 $\hat{\mathbf{y}} = A \mathbf{x}$ ，所以
 
-$$\mathrm{SS}(E) = \| W \mathbf{y} - W \hat{\mathbf{y}} \|^2 = \| W \mathbf{y} - W X \symbfit{\beta} \|^2$$
+$$\mathrm{SS}(E) = \| W \mathbf{y} - W A \mathbf{x} \|^2$$
 
-上式表明 $W X \symbfit{\beta}$ 对 $W \mathbf{y}$ 的最佳逼近即方程
+使以上等式右边取得最小值的 $\mathbf{x}$ ，即方程
 
-$$W X \symbfit{\beta} = W \mathbf{y}$$
+$$W A \mathbf{x} = W \mathbf{y}$$
 
-的最小二乘解，其法方程是
+的标准最小二乘解。其法方程为
 
-$$(W X)^T W X \symbfit{\beta} = (W X)^T W \mathbf{y}$$
+$$(W A)^T W A \mathbf{x} = (W A)^T W \mathbf{y}$$
+
+> 如果在一个内积空间上使用自定义内积
+>
+> $$\langle \mathbf{u}, \mathbf{v} \rangle = w_1^2 u_1 v_1 + w_2^2 u_2 v_2 + \dots + w_n^2 u_n v_n$$
+>
+> 那么求方程 $A \mathbf{x} = \mathbf{y}$ 的最小二乘解的标准法方程
+>
+> $$A^T A \mathbf{x} = A^T \mathbf{y}$$
+>
+> 在这个内积空间上将不再适用。
 
 ### 数据趋势分析
 
@@ -447,7 +473,7 @@ $$(W X)^T W X \symbfit{\beta} = (W X)^T W \mathbf{y}$$
 
 ### 傅立叶级数
 
-连续函数可用正、余弦函数的线性组合来逼近。为简化问题，这里只考虑 $C[0, 2 \pi]$ 上的连续函数。
+连续函数可用正、余弦函数的线性组合来逼近。
 
 对 $[0, 2 \pi]$ 上的任意连续函数 $f(t)$ ，有
 
@@ -468,12 +494,10 @@ $$f(t) = \frac{a_0}{2} + \sum_{k = 1}^{n} (a_k \cos kt + b_k \sin kt)$$
 
 则称为 $f$ 在 $[0, 2 \pi]$ 上的*n 阶傅立叶逼近*。
 
-傅立叶逼近的本质是在内积空间 $C[0, 2 \pi]$ 的一个子空间里寻找一个最佳逼近（函数）。
-
-内积函数定义为
-
-$$\langle f, g \rangle = \int_0^{2 \pi} f(t) g(t) \mathrm{d}t$$
-
-子空间的正交基为
+傅立叶逼近的本质是在内积空间 $C[0, 2 \pi]$ 的一个子空间 $W$ 里寻找一个最佳逼近函数。其中，子空间 $W$ 由一组正交基定义
 
 $$\{ 1,\ \cos t,\ \sin t,\ \dots,\ \cos nt,\ \sin nt \}$$
+
+内积空间 $C[0, 2 \pi]$ 上的内积定义为
+
+$$\langle f, g \rangle = \int_0^{2 \pi} f(t) g(t) \mathrm{d}t$$
