@@ -2,7 +2,7 @@
 
 ## 7.1 对称矩阵的对角化
 
-### 对称矩阵的正交对角化
+### 正交对角化
 
 *对称矩阵的定义*
 
@@ -10,7 +10,7 @@
 
 *定理 1*
 
-若矩阵是对称的，则它的属于不同特征空间的任意两个特征向量是正交的。
+若矩阵是对称的，则其属于不同特征空间的任意两个特征向量是正交的。
 
 *正交对角化*
 
@@ -22,11 +22,11 @@ $$A = P D P^T = P D P^{-1}$$
 
 一个 $n \times n$ 矩阵 $A$ 可正交对角化的充要条件是 $A$ 是对称矩阵。
 
-### 对称矩阵的谱定理和谱分解
+### 谱定理和谱分解
 
 *谱*
 
-矩阵 $A$ 的特征值的集合有时称为 $A$ 的*谱*。
+矩阵 $A$ 的特征值的集合也称为 $A$ 的*谱*。
 
 *定理 3（对称矩阵的谱定理）*
 
@@ -51,15 +51,26 @@ $$P = [\mathbf{u}_1 \dots \mathbf{u}_n], \; D = \begin{bmatrix*}
 
 则
 
-$$A = \lambda_1 \mathbf{u}_1 \mathbf{u}_1^T + \dots + \lambda_n \mathbf{u}_n \mathbf{u}_n^T$$
+$$\begin{align*}
+  A &= [\mathbf{u}_1 \dots \mathbf{u}_n]
+  \begin{bmatrix*}
+    \lambda_1 \\
+    & \ddots \\
+    & & \lambda_n
+  \end{bmatrix*}
+  \begin{bmatrix*}
+    \mathbf{u}_1^T \\
+    \vdots \\
+    \mathbf{u}_n^T
+  \end{bmatrix*} \\
+  &= \lambda_1 \mathbf{u}_1 \mathbf{u}_1^T + \dots + \lambda_n \mathbf{u}_n \mathbf{u}_n^T
+\end{align*}$$
 
 上式将矩阵 $A$ 拆分为 $A$ 的谱确定的矩阵之和，因此称为矩阵 $A$ 的*谱分解*。其中，每个矩阵 $\mathbf{u}_i \mathbf{u}_i^T$ 都是*投影矩阵* —— 对每个 $\mathbf{x} \in \mathbb{R}^n$ ， $\mathbf{u}_i \mathbf{u}_i^T \mathbf{x}$ 是 $\mathbf{x}$ 在 $\mathbf{u}_i$ 生成的子空间（直线）上的投影（参见[6.3节](06-orthogonality.md#63-正交投影)定理10）。
 
 ### 投影矩阵 *
 
-若 $n \times n$ 矩阵 $A$ 是对称的且 $A^2 = A$ ，则称 $A$ 为*投影矩阵* —— 对任意 $\mathbf{x} \in \mathbb{R}^n$ ， $A \mathbf{x}$ 是 $\mathbf{x}$ 在 $A$ 的列空间的正交投影。
-
-可以通过最小二乘法方程或 SVD 分解来证明以上命题（参见习题36）。
+若 $n \times n$ 矩阵 $A$ 是对称的且 $A^2 = A$ ，则称 $A$ 为*投影矩阵* —— 对任意 $\mathbf{x} \in \mathbb{R}^n$ ， $A \mathbf{x}$ 是 $\mathbf{x}$ 在 $A$ 的列空间的正交投影（参见习题36）。
 
 ## 7.2 二次型
 
@@ -71,15 +82,30 @@ $$A = \lambda_1 \mathbf{u}_1 \mathbf{u}_1^T + \dots + \lambda_n \mathbf{u}_n \ma
 
 *定理 4（主轴定理）*
 
-设有二次型 $\mathbf{x}^T A \mathbf{x}$ ，其中 $A$ 是一个 $n \times n$ 对称矩阵，则存在一个正交矩阵 $P$ ，做变量代换 $\mathbf{x} = P \mathbf{y}$ ，使得 $\mathbf{x}^T A \mathbf{x} = \mathbf{y}^T D \mathbf{y}$ ，而后者不含交叉乘积（即 $x_i x_j, \ i \ne j$ ）项。
+设有二次型 $\mathbf{x}^T A \mathbf{x}$ ，其中 $A$ 是一个 $n \times n$ 对称矩阵，则存在一个正交矩阵 $P$ ，做变量代换 $\mathbf{x} = P \mathbf{y}$ ，使得 $\mathbf{x}^T A \mathbf{x} = \mathbf{y}^T D \mathbf{y}$ ，而后者不含交叉乘积（即 $y_i y_j, \ i \ne j$ ）项。
 
 实际上， $A$ 可正交对角化为 $A = P D P^{-1}$ ， $P$ 、 $D$ 满足以上定理。
 
 定理中矩阵 $P$ 的列称为二次型 $\mathbf{x}^T A \mathbf{x}$ 的*主轴*，向量 $\mathbf{y}$ 是 $\mathbf{x}$ 在主轴（单位正交基）上的坐标。
 
-### 二次型的分类
+> 实际上，变量代换 $\mathbf{x} = P \mathbf{y}$ 即坐标映射 $\mathbf{x} \mapsto P^{-1} \mathbf{x}$ ，且变换后模长不变
+> $$\| \mathbf{y} \|^2 = \| P^{-1} \mathbf{x} \|^2 = (P^{-1} \mathbf{x})^T(P^{-1} \mathbf{x}) = \mathbf{x}^T P P^{-1} \mathbf{x} = \| \mathbf{x} \|^2$$
 
-*定义*
+### 二次型的几何意义
+
+设 $Q(\mathbf{x}) = \mathbf{x}^T A \mathbf{x}$ ，其中 $A$ 是一个 $2 \times 2$ 可逆对称矩阵。若 $c$ 为常数，则满足
+
+$$Q(\mathbf{x}) = c$$
+
+的 $\mathbf{x}$ 的集合对应于一个椭圆、双曲线、两条相交的直线、单个点或者不含任何点。
+
+> $A$ 是 $2 \times 2$ 对称矩阵，因此 $A$ 有两个实特征值 $\lambda_1$ 、 $\lambda_2$ 。又 $A$ 可逆，所以这两个特征值非零。由变量代换 $\mathbf{x} = P \mathbf{y}$ 可把原方程化为标准型
+>
+> $$\lambda_1 y_1^2 + \lambda_2 y_2^2 = c$$
+>
+> 其中 $P$ 的列是 $A$ 对应于 $\lambda_1$ 和 $\lambda_2$ 的单位特征向量。讨论 $\lambda_1$ 、 $\lambda_2$ 和 $c$ 的符号，可以得出以上结论。
+
+### 二次型的分类
 
 二次型 $Q$ 是
 
@@ -126,25 +152,36 @@ $$\mathbf{x}^T \mathbf{x} = 1, \ \mathbf{x}^T \mathbf{u}_1 = 0, \ \dots, \ \math
 
 *定义*
 
-$m \times n$ 矩阵 $A$ 的*奇异值*是 $A^T A$ 的特征值的平方根，记作 $\sigma_1, \dots, \sigma_n$ ，按递减顺序排列。
+$m \times n$ 矩阵 $A$ 的*奇异值*是 $A^T A$ 的所有特征值对应的非负平方根，记作 $\sigma_1, \dots, \sigma_n$ ，按递减顺序排列，其中
 
-设 $\mathbf{v}_1, \dots, \mathbf{v}_n$ 是 $A^T A$ 的单位正交的特征向量，则 $A$ 的奇异值是向量 $A \mathbf{v}_1, \dots, A \mathbf{v}_n$ 的长度，即 $\sigma_i = \| A \mathbf{v}_i \|$
+$$\sigma_i = \sqrt{\lambda_i} \quad (i = 1, \dots, n)$$
 
-证明/思路：
+设 $\mathbf{v}_1, \dots, \mathbf{v}_n$ 是 $A^T A$ 的单位正交的特征向量，则 $A$ 的奇异值是向量 $A \mathbf{v}_1, \dots, A \mathbf{v}_n$ 的长度，即
 
-$$\| A \mathbf{v}_i \|^2 = (A \mathbf{v}_i) \cdot (A \mathbf{v}_i) = (A \mathbf{v}_i)^T (A \mathbf{v}_i) = \mathbf{v}_i^T (A^T A \mathbf{v}_i) = \mathbf{v}_i^T (\lambda_i \mathbf{v}_i) = \lambda_i$$
+$$\sigma_i = \| A \mathbf{v}_i \|$$
 
-因此
+因为
 
-$$\sigma_i = \sqrt{\lambda_i} = \| A \mathbf{v}_i \|$$
+$$\| A \mathbf{v}_i \|^2 = (A \mathbf{v}_i) \cdot (A \mathbf{v}_i) = (A \mathbf{v}_i)^T (A \mathbf{v}_i) = \mathbf{v}_i^T (A^T A \mathbf{v}_i) = \mathbf{v}_i^T (\lambda_i \mathbf{v}_i) = \lambda_i = \sigma_i^2$$
 
-由此亦可得出： $A^T A$ 的特征值总是非负的。
+> 由此可见：
+>
+> * $A^T A$ 的特征值总是非负的
+> * 当 $\lambda_i = 0$ 时， $A \mathbf{v}_i = 0$
 
 *定理 9*
 
-对 $m \times n$ 矩阵 $A$ ，设 $\mathbf{v}_1, \dots, \mathbf{v}_n$ 是 $A^T A$ 的单位正交的特征向量，且其对应的特征值满足 $\lambda_1 \ge \dots \ge \lambda_n$ ，若 $A$ 有 $r$ 个正的奇异值，则 $\{ A \mathbf{v}_1, \dots, A \mathbf{v}_r\}$ 是 $\mathrm{Col} \ A$ 的一个正交基，且 $\mathrm{rank} \ A = r$
+对 $m \times n$ 矩阵 $A$ ，设 $\mathbf{v}_1, \dots, \mathbf{v}_n$ 是 $A^T A$ 的单位正交的特征向量，且其对应的特征值满足 $\lambda_1 \ge \dots \ge \lambda_n$ ，若 $A$ 有 $r$ 个正的奇异值，则 $\{ A \mathbf{v}_1, \dots, A \mathbf{v}_r \}$ 是 $\mathrm{Col} \ A$ 的一个正交基，且 $\mathrm{rank} \ A = r$
 
 证明/思路：
+
+首先， $A \mathbf{v}_i$ 和 $A \mathbf{v}_j$ 是正交的，因为
+
+$$(A \mathbf{v}_i)^T(A \mathbf{v}_j) = \mathbf{v}_i^T A^T A \mathbf{v}_j = \mathbf{v}_i^T (\lambda_j \mathbf{v}_j) = 0, \ i \ne j$$
+
+其次，当 $\lambda_i = 0$ 时， $A \mathbf{v}_i = 0$ （从前述讨论可知）。因此 $A \mathbf{v}_1, \dots, A \mathbf{v}_r$ 是一组非零的正交向量。
+
+接下来证明 $\mathrm{Span} \ \{ A \mathbf{v}_1, \dots, A \mathbf{v}_r\} = \mathrm{Col} \ A$
 
 设 $x = c_1 A \mathbf{v}_1 + \dots + c_r A \mathbf{v}_r$ ，则 $x = A (c_1 \mathbf{v}_1 + \dots + c_r \mathbf{v}_r)$ ，即
 
@@ -164,13 +201,7 @@ $$x \in \mathrm{Col} \ A \implies x \in \mathrm{Span} \{ A \mathbf{v}_1, \dots, 
 
 综上有
 
-$$\mathrm{Col} \ A = \mathrm{Span} \{ A \mathbf{v}_1, \dots, A \mathbf{v}_r\}$$
-
-又
-
-$$(A \mathbf{v}_i)^T(A \mathbf{v}_j) = \mathbf{v}_i^T A^T A \mathbf{v}_j = \mathbf{v}_i^T (\lambda_j \mathbf{v}_j) = 0, \ i \ne j$$
-
-故 $\{ A \mathbf{v}_1, \dots, A \mathbf{v}_r\}$ 是 $\mathrm{Col} \ A$ 的一个正交基。
+$$\mathrm{Span} \ \{ A \mathbf{v}_1, \dots, A \mathbf{v}_r\} = \mathrm{Col} \ A$$
 
 ### 奇异值分解
 
@@ -191,48 +222,33 @@ $A = U \Sigma V^T$ 称为 $A$ 的一个*奇异值分解*（或SVD）。 $A$ 的�
 
 证明/思路：
 
+$V$ 是正交矩阵，则
+
 $$A = U \Sigma V^T \iff A V = U \Sigma$$
 
 设 $V = [\mathbf{v}_1 \ \dots \ \mathbf{v}_n], \ U = [\mathbf{u}_1 \ \dots \ \mathbf{u}_m]$ ，则
 
-$A V =[A \mathbf{v}_1 \ \dots \ A \mathbf{v}_n]$
+$$\begin{align*}
+  A V &= [A \mathbf{v}_1 \ \dots \ A \mathbf{v}_n] \\
+  U \Sigma &= [\sigma_1 \mathbf{u}_1 \ \dots \ \sigma_r \mathbf{u}_r \ \mathbf{0} \dots \ \mathbf{0}]
+\end{align*}$$
 
-$U \Sigma = [\sigma_1 \mathbf{u}_1 \ \dots \ \sigma_r \mathbf{u}_r \ \mathbf{0} \dots \ \mathbf{0}]$
-
-$A V = U \Sigma \iff \begin{cases}
+$$A V = U \Sigma \iff \begin{cases}
 A \mathbf{v}_i = \sigma_i \mathbf{u}_i & 1 \le i \le r\\
 A \mathbf{v}_i = \mathbf{0} & r < i \le n \\
-\end{cases}$
+\end{cases}$$
 
-可见，若 $V$ 的列是 $A^T A$ 的单位正交的特征向量，并设 $\displaystyle \mathbf{u}_i = \frac{A \mathbf{v}_i}{\sigma_i} = \frac{A \mathbf{v}_i}{\| A \mathbf{v}_i \|} \quad (1 \le i \le r)$ ，则以上条件可以满足；对于 $\mathbf{u}_i \; r < i \le m$ ，只要扩充 $\{ \mathbf{u}_1, \dots, \mathbf{u}_r \}$ 得到 $\mathbb{R}^m$ 的一个单位正交基即可。
+可见，若 $V$ 的列是 $A^T A$ 的单位正交的特征向量，并设 $\displaystyle \mathbf{u}_i = \frac{A \mathbf{v}_i}{\| A \mathbf{v}_i \|}= \frac{A \mathbf{v}_i}{\sigma_i} \quad (1 \le i \le r)$ ，则以上条件可以满足；对于 $\mathbf{u}_i \; r < i \le m$ ，只要扩充 $\{ \mathbf{u}_1, \dots, \mathbf{u}_r \}$ 得到 $\mathbb{R}^m$ 的一个单位正交基即可。
 
-实际上，若 $m \times n$ 矩阵 $A$ 可以表示为 $A = U \Sigma V^T$ ，其中 $U$ 是 $m \times m$ 正交矩阵、 $V$ 是 $n \times n$ 正交矩阵， $\Sigma = \begin{bmatrix*}
-D & 0 \\
-0 & 0 \\
-\end{bmatrix*}$ ，其中 $D$ 是 $r \times r$ 对角矩阵且对角线上的元素都是正数，则 $U$ 的列是 $A A^T$ 的特征向量， $V$ 的列是 $A^T A$ 的特征向量， $D$ 对角线上的元素是 $A$ （全部）的正奇异值。
-
-证明/思路：
-
-$A A^T = (U \Sigma V^T)(U \Sigma V^T)^T = U (\Sigma \Sigma^T) U^T$
-
-其中 $\Sigma \Sigma^T = \begin{bmatrix*}
-D^2 & 0 \\
-0 & 0 \\
-\end{bmatrix*}$ 是一个 $m \times m$ 对角矩阵，其对角线上的元素是 $\sigma_1^2, \dots, \sigma_r^2, 0, \dots, 0$ （共 $m$ 个）
-
-根据[5.3节](05-eigenvalue-and-eigenvector.md#53-对角化)定理5——可对角化矩阵的充要条件， $U$ 的列是 $A A^T$ 的 $m$ 个线性无关的特征向量，对应的特征值是 $\sigma_1^2, \dots, \sigma_r^2, 0, \dots, 0$ （共 $m$ 个）
-
-同理， $A^T A = (U \Sigma V^T)^T U \Sigma V^T = V (\Sigma^T \Sigma) V^T$
-
-其中 $\Sigma^T \Sigma$ 是一个 $n \times n$ 对角矩阵，其对角线上的元素是 $\sigma_1^2, \dots, \sigma_r^2, 0, \dots, 0$ （共 $n$ 个）
-
-同样根据可对角化定理， $V$ 的列是 $A^T A$ 的 $n$ 个线性无关的特征向量，对应特征值是 $\sigma_1^2, \dots, \sigma_r^2, 0, \dots, 0$ （共 $n$ 个）
+> 由矩阵 $A$ 的奇异值分解，可以把 $A$ 像谱分解那样展开为
+>
+> $$A = \sigma_1 \mathbf{u}_1 \mathbf{v}_1^T + \sigma_2 \mathbf{u}_2 \mathbf{v}_2^T + \dots + \sigma_r \mathbf{u}_r \mathbf{v}_r^T$$
 
 ### 基本子空间的基
 
 设 $m \times n$ 矩阵 $A$ 的秩为 $r$ ，奇异值为 $\sigma_1, \dots, \sigma_n$ ，左奇异向量为 $\mathbf{u}_1, \dots, \mathbf{u}_m$ ，右奇异向量为 $\mathbf{v}_1, \dots, \mathbf{v}_n$ ，则 $A$ 的四个基本子空间的（单位正交）基如下：
 
-| 子空间          | （单位正交）基
+| 子空间          | （单位）正交基
 |----------------|----------------
 | $\mathrm{Row} \ A$ | $\mathbf{v}_1, \dots, \mathbf{v}_r$
 | $\mathrm{Nul} \ A$ | $\mathbf{v}_{r + 1}, \dots, \mathbf{v}_n$
@@ -278,7 +294,7 @@ V_{n - r}^T \\
 
 *伪逆*
 
-由简化的奇异值分解，定义 $A$ 的*伪逆*为
+$A$ 的*伪逆*定义为
 
 $$A^+ = V_r D^{-1} U_r^T$$
 
@@ -288,7 +304,7 @@ $$A^+ = V_r D^{-1} U_r^T$$
 
 $$A \hat{\mathbf{x}} = U_r U_r^T \mathbf{b}$$
 
-$U_r$ 的列构成 $\mathrm{Col} \ A$ 的一个单位正交基，由[6.3节](06-orthogonality.md#63-正交投影)定理10， $U_r U_r^T$ 是一个投影矩阵， $U_r U_r^T \mathbf{b}$ 是 $\mathbf{b}$ 在 $\mathrm{Col} \ A$ 上的正交投影。
+$U_r$ 的列构成 $\mathrm{Col} \ A$ 的一个单位正交基，由[6.3节](06-orthogonality.md#63-正交投影)定理10， $U_r U_r^T$ 是一个投影矩阵， $U_r U_r^T \mathbf{b}$ 是 $\mathbf{b}$ 在 $\mathrm{Col} \ A$ 上的正交投影。因此 $\hat{\mathbf{x}}$ 是方程的一个最小二乘解（实际上，它是向量长度最短的解）。
 
 ## 7.5 图像处理和统计学的应用
 
@@ -308,19 +324,44 @@ $$B = [\hat{\mathbf{x}_1} \dots \hat{\mathbf{x}_n}]$$
 
 $$S = \frac{1}{n - 1} B B^T$$
 
-举例来说，设 $B = \begin{bmatrix*}
-b_{11} & b_{12} & b_{13} \\
-b_{21} & b_{22} & b_{23} \\
-\end{bmatrix*}$ ，则
-
-$$S = \frac{1}{2} B B^T = \frac{1}{2} \begin{bmatrix*}
-b_{11}^2 + b_{12}^2 + b_{13}^2 & b_{11} b_{21} + b_{12} b_{22} + b_{13} b_{23} \\
-b_{11} b_{21} + b_{12} b_{22} + b_{13} b_{23} & b_{21}^2 + b_{22}^2 + b_{23}^2 \\
-\end{bmatrix*}$$
-
 $S$ 中的对角元素 $s_{ii}$ 称为 $x_i$ 的*方差*。（观测矩阵的）数据的*总方差*即 $S$ 对角线上的元素之和 $\mathrm{tr} (S)$
 
 $S$ 中的元素 $s_{ij} \ (i \ne j)$ 称为 $x_i$ 和 $x_j$ 的*协方差*。若 $x_i$ 和 $x_j$ 的协方差为零，则称 $x_i$ 和 $x_j$ 是*无关*的。
+
+
+> 设 $B = \begin{bmatrix*}
+  \mathbf{b}_1 \\
+  \vdots \\
+  \mathbf{b}_n \\
+\end{bmatrix*}$ ，其中 $\mathbf{b}_i$ 是行向量，则
+>
+> $$\begin{align*}
+  B B^T &=
+  \begin{bmatrix*}
+    \mathbf{b}_1 \\
+    \vdots \\
+    \mathbf{b}_n \\
+  \end{bmatrix*}
+  [\mathbf{b}_1 \dots \mathbf{b}_n] \\
+  &= \begin{bmatrix*}
+    \mathbf{b}_1 \mathbf{b}_1^T & \mathbf{b}_1 \mathbf{b}_2^T & \dots & \mathbf{b}_1 \mathbf{b}_n^T\\
+    \mathbf{b}_2 \mathbf{b}_1^T & \mathbf{b}_2 \mathbf{b}_2^T & \dots & \mathbf{b}_2 \mathbf{b}_n^T\\
+    \vdots & \vdots & \ddots & \vdots\\
+    \mathbf{b}_n \mathbf{b}_1^T & \mathbf{b}_n \mathbf{b}_2^T & \dots & \mathbf{b}_n \mathbf{b}_n^T\\
+  \end{bmatrix*} \\
+  &= \begin{bmatrix*}
+    \mathbf{b}_1 \cdot \mathbf{b}_1 & \mathbf{b}_1 \cdot \mathbf{b}_2 & \dots & \mathbf{b}_1 \cdot \mathbf{b}_n\\
+    \mathbf{b}_2 \cdot \mathbf{b}_1 & \mathbf{b}_2 \cdot \mathbf{b}_2 & \dots & \mathbf{b}_2 \cdot \mathbf{b}_n\\
+    \vdots & \vdots & \ddots & \vdots\\
+    \mathbf{b}_n \cdot \mathbf{b}_1 & \mathbf{b}_n \cdot \mathbf{b}_2 & \dots & \mathbf{b}_n \cdot \mathbf{b}_n\\
+  \end{bmatrix*} \\
+\end{align*}$$
+>
+> 可见
+>
+> *  $x_i$ 的方差即 $\dfrac{1}{n - 1} (\mathbf{b}_i \cdot \mathbf{b}_i)$
+> *  $x_i$ 和 $x_j$ 的协方差即 $\dfrac{1}{n - 1} (\mathbf{b}_i \cdot \mathbf{b}_j)$
+
 
 ### 主成分分析
 
@@ -334,9 +375,9 @@ $$B = [\mathbf{x}_1 \dots \mathbf{x}_n] = [P \mathbf{y}_1, \dots, P \mathbf{y}_n
 
 $$S = \frac{1}{n - 1} B B^T = \frac{1}{n - 1} P C C^T P^T$$
 
-其中 $\displaystyle \frac{1}{n - 1} C C^T$ 即 $\mathbf{y}$ 的协方差矩阵，记作 $Q$ ，则 $S = P Q P^T$ 。现在希望 $Q$ 是一个对角矩阵。
+其中 $\displaystyle \frac{1}{n - 1} C C^T$ 即 $\mathbf{y}$ 的协方差矩阵，记作 $D$ ，则 $S = P D P^T$ 。现在希望 $D$ 是一个对角矩阵。
 
-显然，把对称矩阵 $S$ 正交对角化，并使对角矩阵 $Q$ 上的特征向量从大到小排列即可满足要求。
+显然，把对称矩阵 $S$ 正交对角化，并使对角矩阵 $D$ 上的特征向量从大到小排列即可满足要求。
 
 协方差矩阵 $S$ 的单位正交的特征向量称为（观测矩阵中）数据的*主成分*。*第一主成分*是 $S$ 中最大特征值对应的特征向量；*第二主成分*是 $S$ 中第二大特征值对应的特征向量，以此类推。
 
