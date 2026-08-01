@@ -127,7 +127,9 @@ $$\hat{\mathbf{y}} = \mathrm{proj}_L \ \mathbf{y} = \frac{\mathbf{y} \cdot \math
 2. $(U \mathbf{x}) \cdot (U \mathbf{y}) = \mathbf{x} \cdot \mathbf{y}$
 3. $(U \mathbf{x}) \cdot (U \mathbf{y}) = 0$ 的充要条件是 $\mathbf{x} \cdot \mathbf{y} = 0$
 
-> 该定理说明，线性映射 $\mathbf{x} \mapsto U \mathbf{x}$ 保持长度和正交性，若 $U$ 的列单位正交。
+> 该定理说明，若 $U$ 的列单位正交，则线性映射 $\mathbf{x} \mapsto U \mathbf{x}$ 保持长度和正交性。
+>
+> 此外，设 $\cos \theta = \dfrac{\mathbf{u} \cdot \mathbf{v}}{\| \mathbf{u} \| \| \mathbf{v} \|}$ ，其中 $\theta$ 为向量 $\mathbf{u}$ 、 $\mathbf{v}$ 的夹角，则线性映射 $\mathbf{x} \mapsto U \mathbf{x}$ 保持两向量的夹角不变。
 
 *正交矩阵*
 
