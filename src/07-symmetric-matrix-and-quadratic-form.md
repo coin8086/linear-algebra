@@ -240,9 +240,47 @@ A \mathbf{v}_i = \mathbf{0} & r < i \le n \\
 
 可见，若 $V$ 的列是 $A^T A$ 的单位正交的特征向量，并设 $\displaystyle \mathbf{u}_i = \frac{A \mathbf{v}_i}{\| A \mathbf{v}_i \|}= \frac{A \mathbf{v}_i}{\sigma_i} \quad (1 \le i \le r)$ ，则以上条件可以满足；对于 $\mathbf{u}_i \; r < i \le m$ ，只要扩充 $\{ \mathbf{u}_1, \dots, \mathbf{u}_r \}$ 得到 $\mathbb{R}^m$ 的一个单位正交基即可。
 
-> 由矩阵 $A$ 的奇异值分解，可以把 $A$ 像谱分解那样展开为
+> 实际上，若 $m \times n$ 矩阵 $A$ 可以表示为 $A = U \Sigma V^T$ ，其中 $U$ 是 $m \times m$ 正交矩阵、 $V$ 是 $n \times n$ 正交矩阵， $\Sigma = \begin{bmatrix*}
+> D & 0 \\
+> 0 & 0 \\
+> \end{bmatrix*}$ ，其中 $D$ 是 $r \times r$ 对角矩阵且对角线上的元素都是正数，则 $U$ 的列是 $A A^T$ 的特征向量， $V$ 的列是 $A^T A$ 的特征向量， $D$ 对角线上的元素是 $A$ （全部）的正奇异值。
 >
-> $$A = \sigma_1 \mathbf{u}_1 \mathbf{v}_1^T + \sigma_2 \mathbf{u}_2 \mathbf{v}_2^T + \dots + \sigma_r \mathbf{u}_r \mathbf{v}_r^T$$
+> 这就是说：
+>
+> * 只要矩阵 $A$ 可以分解为 $A = U \Sigma V^T$ 的形式，其中 $U$ 、 $V$ 和 $\Sigma$ 符合以上条件，则 $A = U \Sigma V^T$ 就是一个奇异值分解。
+> * 矩阵 $A$ 和 $A^T$ 有相同的正奇异值。
+>
+> 证明/思路：
+>
+> $A A^T = (U \Sigma V^T)(U \Sigma V^T)^T = U (\Sigma \Sigma^T) U^T$
+>
+> 其中 $\Sigma \Sigma^T = \begin{bmatrix*}
+> D^2 & 0 \\
+> 0 & 0 \\
+> \end{bmatrix*}$ 是一个 $m \times m$ 对角矩阵，其对角线上的元素是 $\sigma_1^2, \dots, \sigma_r^2, 0, \dots, 0$ （共 $m$ 个）
+> 根据[5.3节](05-eigenvalue-and-eigenvector.md#53-对角化)定理5——可对角化矩阵的充要条件， $U$ 的列是 $A A^T$ 的 $m$ 个线性无关的特征向量，对应的特征值是 $\sigma_1^2, \dots, \sigma_r^2, 0, \dots, 0$ （共 $m$ 个）
+>
+> 同理， $A^T A = (U \Sigma V^T)^T U \Sigma V^T = V (\Sigma^T \Sigma) V^T$
+>
+> 其中 $\Sigma^T \Sigma$ 是一个 $n \times n$ 对角矩阵，其对角线上的元素是 $\sigma_1^2, \dots, \sigma_r^2, 0, \dots, 0$ （共 $n$ 个）
+>
+> 同样根据可对角化定理， $V$ 的列是 $A^T A$ 的 $n$ 个线性无关的特征向量，对应特征值是 $\sigma_1^2, \dots, \sigma_r^2, 0, \dots, 0$ （共 $n$ 个）
+
+*奇异值分解的步骤*
+
+对 $m \times n$ 矩阵 $A$ 做奇异值分解 $A = U \Sigma V^T$ 的步骤：
+
+1. 将矩阵 $A^T A$ 正交对角化。
+2. 计算 $V$ 和 $\Sigma$ ：
+   1. 把 $A^T A$ 的特征值从大到小排列： $\lambda_1, \, \dots, \, \lambda_n$ 。相应的非负平方根即奇异值 $\sigma_1, \, \, \dots, \, \sigma_n$ 。
+   2. 把 $A^T A$ 的特征向量按对应的特征值排列： $\mathbf{v}_1, \, \dots, \, \mathbf{v}_n$ ，形成 $V$ 的列。
+3. 构造 $U$ ：设 $A$ 的秩为 $r$ ，则矩阵 $U$ 的列 $\mathbf{u}_i = \dfrac{A \mathbf{v}_i}{\| A \mathbf{v}_i \|} = \dfrac{A \mathbf{v}_i}{\sigma_i} \; (i = 1, \dots, r)$ 。若 $r < m$ ，则扩充 $\mathbf{u}_i \; (i = r + 1, \dots, m)$ 使 $U$ 的列成为 $\mathbb{R}^m$ 的一个单位正交基。
+
+*类似谱分解的奇异值分解*
+
+由矩阵 $A$ 的奇异值分解，可以把 $A$ 像谱分解那样展开为
+
+$$A = \sigma_1 \mathbf{u}_1 \mathbf{v}_1^T + \sigma_2 \mathbf{u}_2 \mathbf{v}_2^T + \dots + \sigma_r \mathbf{u}_r \mathbf{v}_r^T$$
 
 ### 基本子空间的基
 
