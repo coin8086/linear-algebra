@@ -424,3 +424,29 @@ $$S = \frac{1}{n - 1} B B^T = \frac{1}{n - 1} P C C^T P^T$$
 在实际计算中，奇异值分解是主成分分析的主要工具，它更快更准确。
 
 设 $B$ 是一个具有平均偏差形式的 $p \times n$ 观测矩阵， $\displaystyle A = \frac{1}{\sqrt{n - 1}} B^T$ ，则 $A^T A = S$ 。 $A$ 的奇异值的平方即 $S$ 的特征值， $A$ 的右奇异向量即数据的主成分。
+
+> 实际上，更快的方法是直接对矩阵 $B$ 进行奇异值分解 $B = U \Sigma V^T$ ，则 $B$ 的左奇异值向量即 $S$ 的单位正交的特征向量（数据的主成分）。
+>
+> 证明/思路：
+>
+> 设 $B$ 有奇异值分解 $B = U \Sigma V^T$ ，则
+>
+> $$\begin{align*}
+  S &= \frac{1}{n - 1} B B^T \\
+  &= \frac{1}{n - 1} (U \Sigma V^T) (U \Sigma V^T)^T \\
+  &= \frac{1}{n - 1} (U \Sigma V^T) (V \Sigma^T U^T) \\
+  &= \frac{1}{n - 1} U \Sigma \Sigma^T U^T \\
+\end{align*}$$
+>
+> 其中 $\Sigma \Sigma^T$ 是一个对角矩阵
+>
+> $$\Sigma \Sigma^T = \begin{bmatrix*}
+  D^2 & 0 \\
+  0 & 0
+\end{bmatrix*}$$
+>
+> 设 $A = \dfrac{1}{n - 1} \Sigma \Sigma^T$ ，则
+>
+> $$S = U A U^T$$
+>
+> 即 $S$ 的正交对角化。因此 $U$ 的列即 $S$ 的单位正交的特征向量。
