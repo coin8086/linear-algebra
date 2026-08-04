@@ -162,7 +162,14 @@ $$\sigma_i = \| A \mathbf{v}_i \|$$
 
 因为
 
-$$\| A \mathbf{v}_i \|^2 = (A \mathbf{v}_i) \cdot (A \mathbf{v}_i) = (A \mathbf{v}_i)^T (A \mathbf{v}_i) = \mathbf{v}_i^T (A^T A \mathbf{v}_i) = \mathbf{v}_i^T (\lambda_i \mathbf{v}_i) = \lambda_i = \sigma_i^2$$
+$$\begin{align*}
+  \| A \mathbf{v}_i \|^2 &= (A \mathbf{v}_i) \cdot (A \mathbf{v}_i) \\
+  &= (A \mathbf{v}_i)^T (A \mathbf{v}_i) \\
+  &= \mathbf{v}_i^T (A^T A \mathbf{v}_i) \\
+  &= \mathbf{v}_i^T (\lambda_i \mathbf{v}_i) \\
+  &= \lambda_i \\
+  &= \sigma_i^2
+\end{align*}$$
 
 > 由此可见：
 >
@@ -171,7 +178,7 @@ $$\| A \mathbf{v}_i \|^2 = (A \mathbf{v}_i) \cdot (A \mathbf{v}_i) = (A \mathbf{
 
 *定理 9*
 
-对 $m \times n$ 矩阵 $A$ ，设 $\mathbf{v}_1, \dots, \mathbf{v}_n$ 是 $A^T A$ 的单位正交的特征向量，且其对应的特征值满足 $\lambda_1 \ge \dots \ge \lambda_n$ ，若 $A$ 有 $r$ 个正的奇异值，则 $\{ A \mathbf{v}_1, \dots, A \mathbf{v}_r \}$ 是 $\mathrm{Col} \ A$ 的一个正交基，且 $\mathrm{rank} \ A = r$
+对 $m \times n$ 矩阵 $A$ ，设 $\mathbf{v}_1, \dots, \mathbf{v}_n$ 是 $A^T A$ 的单位正交的特征向量，且其对应的特征值满足 $\lambda_1 \ge \dots \ge \lambda_n$ 。若 $A$ 有 $r$ 个正的奇异值，则 $\{ A \mathbf{v}_1, \dots, A \mathbf{v}_r \}$ 是 $\mathrm{Col} \ A$ 的一个正交基，且 $\mathrm{rank} \ A = r$
 
 证明/思路：
 
