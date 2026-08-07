@@ -204,6 +204,39 @@ $$\mathrm{Span} \{ \mathbf{v}_1, \dots, \mathbf{v}_k \} = \mathrm{Span} \{ \math
 
 若 $m \times n$ 矩阵 $A$ 的列线性无关，则 $A$ 可分解为 $A = Q R$ ，其中 $Q$ 是一个 $m \times n$ 矩阵，其列构成 $\mathrm{Col} \ A$ 的一个标准正交基， $R$ 是一个 $n \times n$ 上三角可逆矩阵且其对角线上的元素都是正数。
 
+证明/思路：
+
+设 $A = [\mathbf{x}_1 \dots \mathbf{x}_n]$ ，由格拉姆-施密特方法把 $A$ 的列向量正交化为 $\mathbf{v}_1, \dots \mathbf{v}_n$ ，有
+
+$$\begin{align*}
+  \mathbf{x}_1 &= \mathbf{v}_1 \\
+  \mathbf{x}_2 &= \frac{\mathbf{x}_2 \cdot \mathbf{v}_1}{\mathbf{v}_1 \cdot \mathbf{v}_1} \mathbf{v}_1 + \mathbf{v}_2 \\
+  \vdots \\
+  \mathbf{x}_n &= \frac{\mathbf{x}_n \cdot \mathbf{v}_1}{\mathbf{v}_1 \cdot \mathbf{v}_1} \mathbf{v}_1 + \frac{\mathbf{x}_n \cdot \mathbf{v}_2}{\mathbf{v}_2 \cdot \mathbf{v}_2} \mathbf{v}_2 + \dots + \frac{\mathbf{x}_n \cdot \mathbf{v}_{n - 1}}{\mathbf{v}_{n - 1} \cdot \mathbf{v}_{n - 1}} \mathbf{v}_{n - 1} + \mathbf{v}_n
+\end{align*}$$
+
+再把 $\mathbf{v}_1, \dots \mathbf{v}_n$ 单位化。设 $\mathbf{u}_i = \dfrac{\mathbf{v}_i}{\| \mathbf{v}_i \|}$ ，则 $\displaystyle \frac{\mathbf{x}_k \cdot \mathbf{v}_i}{\mathbf{v}_i \cdot \mathbf{v}_i} \mathbf{v}_i = (\mathbf{x}_k \cdot \mathbf{u}_i) \mathbf{u}_i$ ，有
+
+$$\begin{align*}
+  \mathbf{x}_1 &= \| \mathbf{v}_1 \| \mathbf{u}_1 \\
+  \mathbf{x}_2 &= (\mathbf{x}_2 \cdot \mathbf{u}_1) \mathbf{u}_1 + \| \mathbf{v}_2 \| \mathbf{u}_2 \\
+  \vdots \\
+  \mathbf{x}_n &= (\mathbf{x}_n \cdot \mathbf{u}_1) \mathbf{u}_1 + (\mathbf{x}_n \cdot \mathbf{u}_2) \mathbf{u}_2 + \dots + (\mathbf{x}_n \cdot \mathbf{u}_{n - 1}) \mathbf{u}_{n - 1} + \| \mathbf{v}_n \| \mathbf{u}_n
+\end{align*}$$
+
+即
+
+$$[\mathbf{x}_1 \dots \mathbf{x}_n]
+= [\mathbf{u}_1 \dots \mathbf{u}_n]
+\begin{bmatrix*}
+\| \mathbf{v}_1 \| & \mathbf{x}_2 \cdot \mathbf{u}_1 & \dots & \dots & \mathbf{x}_n \cdot \mathbf{u}_1 \\
+0 & \| \mathbf{v}_2 \| & & & \mathbf{x}_n \cdot \mathbf{u}_2 \\
+\vdots & 0 & \ddots & & \vdots \\
+\vdots & \vdots & & \ddots & \mathbf{x}_n \cdot \mathbf{u}_{n - 1} \\
+0 & 0 & & & \| \mathbf{v}_n \| \\
+\end{bmatrix*}$$
+
+
 > 此外，设 $A = QR$ ，其中 $Q$ 、 $R$ 分别是 $m \times n$ 、 $n \times n$ 的矩阵，则
 >
 > 1. 若 $A$ 的列线性无关则 $R$ 可逆
